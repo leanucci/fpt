@@ -1,0 +1,12 @@
+<h3>edit team </h3>
+
+<%= error_messages_for :team %>
+
+<% form_for(  :team,
+              :url => team_path(@team),
+              :html => { :method => :put}) do |f| %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>
+
+<%= link_to 'Teams', teams_path %>

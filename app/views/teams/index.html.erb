@@ -1,0 +1,13 @@
+<h3>teams</h3><%= link_to '(add)', new_team_path %>
+
+<%= flash[:notice] %>
+
+<hr />
+<% for team in @teams do %>
+
+<%= team.short_name %> :: <%= team.nickname_name %> | 
+  <%= link_to 'edit', edit_team_path(team) %> | 
+  <%= link_to 'delete', team_path(team), :confirm => "ohrly?", :method => :delete %> | 
+  <%= link_to 'show', team_path(team) %>
+<hr />
+<% end %>

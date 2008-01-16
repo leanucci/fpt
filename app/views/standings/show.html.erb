@@ -1,0 +1,15 @@
+<h3>Torneo <%= get_tournament_type(@tournament) %> 
+<%= @tournament.season.year %></h3>
+
+<h4><%= @standing.name.capitalize %></h4>
+<h4>Partidos:</h4>
+
+<%= @matches.size %>
+<% for match in @matches %>
+<p>
+  <%= match.home_team.short_name %>
+  <%= match.home_team_score %> vs <%= match.away_team_score %> 
+  <%= match.away_team.short_name %>
+  (<%= match.played_date.to_formatted_s(:rfc822) %>)
+</p>  
+<% end %>

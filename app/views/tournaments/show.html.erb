@@ -1,0 +1,21 @@
+<h3>Torneo <%= get_tournament_type(@tournament) %> <%= @tournament.season.year %></h3>
+
+
+<p>
+  <b>Starts:</b>
+  <%=h @tournament.start_date.to_formatted_s(:rfc822) %>
+</p>
+
+<p>
+  <b>Ends:</b>
+  <%=h @tournament.finish_date.to_formatted_s(:rfc822) %>
+</p>
+<% @standings.each do |standing| %>
+<p>
+  <%=h standing.name %> 
+  (<%=h standing.scheduled_date.to_formatted_s(:rfc822) %>) 
+  <%= link_to "ver", tournament_standing_path(standing.tournament, standing) %>
+</p>  
+<% end %>
+  
+

@@ -1,0 +1,27 @@
+<h3>showing team</h3>
+
+<p>
+  <b>Complete Name:</b>
+  <%=h @team.complete_name %>
+</p>
+
+<p>
+  <b>Short Name:</b>
+  <%=h @team.short_name %>
+</p>
+
+<p>
+  <b>Acronym:</b>
+  <%=h @team.acronym_name %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%=h @team.nickname_name %>
+</p>
+
+<%= link_to 'edit', edit_team_path(@team) %> |
+<%= link_to 'delete', team_path(@team), :confirm => "ohrly?", :method => :delete %> |
+<%= link_to 'teams', teams_path %>
+
+</div>

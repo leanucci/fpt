@@ -1,0 +1,22 @@
+<p>
+  <label for="tournament_type"> Type:</label>
+  <%= f.select :t_type, [ ['Apertura', 1], ['Clausura', 2] ] %>
+</p>  
+<p>
+  <label for="tournament_season"> Season:</label>
+  <%= date_select("tournament", "season", 
+                  :start_year => 2007, 
+                  :end_year => 2020, 
+                  :field_separator => "/",
+                  :discard_day => "true",
+                  :discard_month => "true") %>
+</p>
+<p>  
+  <label for="tournament_start_date"> Starts:</label>
+  <%= date_select("tournament", "start_date", :order => [:day, :month, :year]) %>
+</p>  
+<p>  
+  <label for="tournament_finish_date"> Ends:</label>
+  <%= date_select("tournament", "finish_date", :order => [:day, :month, :year]) %>
+</p>
+<%= submit_tag "Just Do It", :class => 'submit' %><br />

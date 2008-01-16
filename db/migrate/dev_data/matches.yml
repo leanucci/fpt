@@ -1,0 +1,79 @@
+mduno:
+  played_date: 2007-08-03
+  standing: fecha1a07
+  home_team: colon
+  away_team: velez
+  home_team_score: 10
+  away_team_score: 1
+
+mddos:
+  played_date: 2007-08-03
+  standing: fecha1a07
+  home_team: banfield
+  away_team: estudiantes
+  home_team_score: 0
+  away_team_score: 3
+
+mdtres:
+  played_date: 2007-08-04
+  standing: fecha1a07
+  home_team: argentinos
+  away_team: sanmartin
+  home_team_score: 0
+  away_team_score: 1
+
+mdcuatro:
+  played_date: 2007-08-04
+  standing: fecha1a07
+  home_team: loboplatense
+  away_team: tigre
+  home_team_score: 0
+  away_team_score: 1
+
+mdcinco:
+  played_date: 2007-08-04
+  standing: fecha1a07
+  home_team: independiente
+  away_team: lanus
+  home_team_score: 5
+  away_team_score: 3
+
+mdseis:
+  played_date: 2007-08-05
+  standing: fecha1a07
+  home_team: olimpo
+  away_team: racing
+  home_team_score: 0
+  away_team_score: 2
+
+mdsiete:
+  played_date: 2007-08-05
+  standing: fecha1a07
+  home_team: newells
+  away_team: sanlorenzo
+  home_team_score: 1
+  away_team_score: 0
+
+mdocho:
+  played_date: 2007-08-05
+  standing: fecha1a07
+  home_team: boca
+  away_team: central
+  home_team_score: 0
+  away_team_score: 0
+
+mdnueve:
+  played_date: 2007-08-05
+  standing: fecha1a07
+  home_team: huracan
+  away_team: arsenal
+  home_team_score: 1
+  away_team_score: 1
+
+mddiez:
+  played_date: 2007-08-05
+  standing: fecha1a07
+  home_team: gimnasiaj
+  away_team: river
+  home_team_score: 2
+  away_team_score: 2
