@@ -24,4 +24,9 @@ class Team < ActiveRecord::Base
   validates_uniqueness_of :complete_name, :allow_nil => false
   validates_presence_of   :acronym_name
   validates_length_of     :nickname_name, :in => 4..20, :allow_blank => true
+  
+  def self.safe_find_all
+    @teams = Team.find(:all)
+    return @teams ||= "empty"
+  end
 end

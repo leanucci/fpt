@@ -1,8 +1,0 @@
-class Match < ActiveRecord::Base
-  belongs_to  :standing
-
-  has_one     :match_details
-  has_many    :home_teams, :through => :match_details
-  has_many    :away_teams, :through => :match_details
-  
-end

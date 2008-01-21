@@ -6,12 +6,11 @@ class TournamentsController < ApplicationController
 
   def show
   
-#FIXME: this doesnt eager load!!
-#FIXME:    @tournament = Tournament.find(params[:id],
-#FIXME:      :include => :standings,
-#FIXME: :order   => "standings.scheduled_date")
-#      
-#FIXME:    @standings = @tournament.standings
+#FIXME:  this doesnt eager load!!
+#FIXME:  @tournament = Tournament.find(params[:id],
+#FIXME:    :include => :standings,
+#FIXME:    :order   => "standings.scheduled_date")
+#FIXME:  @standings = @tournament.standings
 
     @standings = Standing.find_by_tournament(params[:id])
     @tournament = @standings.first.tournament
@@ -20,11 +19,14 @@ class TournamentsController < ApplicationController
 
   def new
     @tournament = Tournament.new
+    @teams = Team.safe_find_all
   end
 
   def create
+    params[:tournament][:team_ids] ||= []
     @tournament = Tournament.new(params[:tournament])
     if @tournament.save
+#      @tournament.teams << params[:tournament][:team_ids]
       flash[:notice] = "Tournament successfully created."
       redirect_to tournaments_path
     else
@@ -35,9 +37,11 @@ class TournamentsController < ApplicationController
   
   def edit
     @tournament = Tournament.find(params[:id])
+    @teams = Team.safe_find_all
   end
   
   def update
+    params[:tournament][:team_ids] ||= []
     @tournament = Tournament.find(params[:id])
     if @tournament.update_attributes(params[:tournament])
       flash[:notice] = "Changes Saved."

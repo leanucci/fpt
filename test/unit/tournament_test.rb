@@ -1,18 +1,30 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TournamentTest < ActiveSupport::TestCase
-  fixtures :tournaments
+  fixtures :tournaments, :teams
   
   def test_should_create_valid_record
-    tournament = create
-    assert tournament.valid?, "Tournament invalid:\n#{tournament.to_yaml}"
+    old_count = Tournament.count
+    tournament = Tournament.create(
+      :id           => 1, 
+      :t_type       => 2, 
+      :season       => "2007-01-01", 
+      :start_date   => "2007-02-10",
+      :finish_date  => "2007-06-15" )
+    tournament.team_ids << Team.find(:all, :limit => 20).map { |x| x.id }
+    assert tournament.valid?, "Tournament invalid #{tournament.errors.full_messages} #{tournament.team_ids.size}"
+    assert_equal Tournament.count, old_count+1
+    #": #{tournament.errors.full_messages} #{tournament.teams.count}" #\n#{tournament.to_yaml}
+    
   end
   
   def test_should_not_create_record_starting_after_end
+    old_count = Tournament.count
     tournament = create( :finish_date => "2006-10-10" )
     assert !tournament.valid?, 
       "Sould not allow finish date later than start date." +
       "#{tournament.errors.on(:finish_date)}"
+    assert_equal old_count, Tournament.count
   end
   
   def test_should_not_create_record_with_invalid_or_missing_fields

@@ -1,0 +1,14 @@
+<h3>edit tournament</h3>
+
+<%= error_messages_for :tournaments %>
+<%= error_messages_for :teams_tournaments %>
+
+<%= flash[:notice] %>
+
+<% form_for :tournament, :url => tournaments_path do |f| %>
+  <%= render :partial => "form", :locals => { :f => f} %>
+<% end %>
+
+<br />
+
+<%= link_to 'tournaments', tournaments_path %>

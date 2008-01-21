@@ -19,9 +19,19 @@ class TournamentsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  def test_should_get_new
+  def test_should_get_new_with_teams
     get :new
     assert_response :success
+    assert_not_nil assigns["teams"], "@teams should not be empty."
   end
-
+  
+ 
+  def test_should_validate_teams_participate_once_per_tournament
+    flunk 'Complete me'
+  end
+  
+  def test_should_offer_new_team_link_if_not_enough_teams
+    flunk 'Complete me'    
+  end
+  
 end
