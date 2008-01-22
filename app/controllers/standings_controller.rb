@@ -5,9 +5,9 @@ class StandingsController < ApplicationController
   end
 
   def show
-    @matches    = Match.find_by_standing(params[:id])
-    @standing   = @matches.first.standing
-    @tournament = @standing.tournament
+    @standing = Standing.find(params[:id], 
+                  :include => [ :tournament, :matches,
+                              { :matches => [ :home_team, :away_team ] }] )
   end
 
   def new

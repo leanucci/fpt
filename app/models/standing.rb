@@ -2,11 +2,12 @@ class Standing < ActiveRecord::Base
 
   belongs_to  :tournament
   has_many    :matches
-  validate    :scheduled_date_too_early?, :scheduled_date_too_late?
+
+  validate :scheduled_date_too_early?, :scheduled_date_too_late?
   
   validates_uniqueness_of   :name, :scope => :tournament_id
   validates_presence_of     :tournament_id
-  validates_uniqueness_of   :scheduled_date
+#  validates_uniqueness_of   :scheduled_date
   
   def self.find_by_tournament(tournament_id)
     self.find(:all, :conditions => ["tournament_id = ?", tournament_id], 

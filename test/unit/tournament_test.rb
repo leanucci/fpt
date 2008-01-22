@@ -11,23 +11,9 @@ class TournamentTest < ActiveSupport::TestCase
       :season       => "2007-01-01", 
       :start_date   => "2007-02-10",
       :finish_date  => "2007-06-15" )
-    tournament.teams = Team.find(:all, :limit => 20)
     assert tournament.valid?, "Tournament invalid."
     assert tournament.save, "Didnt save!"
     assert_equal Tournament.count, old_count + 1
-  end
-  
-  def test_should_should_not_save_with_too_few_teams
-    old_count = Tournament.count
-    tournament = Tournament.new(
-      :id           => 1, 
-      :t_type       => 2, 
-      :season       => "2007-01-01", 
-      :start_date   => "2007-02-10",
-      :finish_date  => "2007-06-15" )
-    tournament.teams = Team.find(:all, :limit => 19)
-    assert !tournament.save, "Didnt save!"
-    assert_equal Tournament.count, old_count
   end
   
   def test_should_not_create_record_starting_after_end
@@ -77,11 +63,15 @@ class TournamentTest < ActiveSupport::TestCase
       :finish_date =>  "2008-01-01"
     })
     assert !right_tournament.finish_date_ok?, "Shouldnt be any problems."
-  end 
-  
-  def test_should_save_tournament_with_20_teams
-        
   end
+  
+  def test_should_add_empty_standings_after_save
+#    tournament = create
+#    assert_equal 0, tournament.standings.count, "Should be zero."
+#    assert tournament.save
+#    assert_equal 19, tournament.standings.count, "should be 19."
+  end
+
   private
   
   def create(options={})
