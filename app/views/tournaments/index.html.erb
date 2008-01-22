@@ -1,6 +1,12 @@
 <h3>tournaments</h3><%= link_to '(add)', new_tournament_path %>
 
-<%= flash[:notice] %>
+<%= error_messages_for :tournament %>
+
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <hr />
 <% for tournament in @tournaments do %>

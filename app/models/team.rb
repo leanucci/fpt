@@ -19,14 +19,14 @@ class Team < ActiveRecord::Base
 #                                            'ORDER BY matches.played_date'
 
 
-
-  validates_uniqueness_of :short_name, :allow_nil => false
-  validates_uniqueness_of :complete_name, :allow_nil => false
-  validates_presence_of   :acronym_name
+  validates_uniqueness_of :short_name
+  validates_uniqueness_of :complete_name
+  validates_presence_of   :acronym_name, :short_name, :complete_name
   validates_length_of     :nickname_name, :in => 4..20, :allow_blank => true
   
   def self.safe_find_all
     @teams = Team.find(:all)
-    return @teams ||= "empty"
+    return @teams ||= nil
   end
+  
 end

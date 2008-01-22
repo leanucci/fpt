@@ -1,6 +1,12 @@
 <h3>new team</h3>
 
-<%= error_messages_for :teams %>
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= error_messages_for 'team' %>
 
 <% form_for :team, :url => teams_path do |f| %>
   <%= render :partial => "form", :locals => { :f => f} %>

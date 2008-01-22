@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Image Score Online</title>
+    <style type="text/css" media="screen">
+      body {
+        font-family: verdana; 
+        background-color: #30787e;
+        padding: 30px;
+      }
+      #content {
+        padding: 15px;
+        background-color: #7dc56c;
+        border: 2px solid black;
+      }
+      .fieldWithErrors {
+        padding: 2px;
+        background-color: red;
+        display: table;
+      }
+      #errorExplanation {
+        width: 400px;
+        border: 2px solid red;
+        padding: 7px;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0 ;
+      }
+      #errorExplanation h2 {
+        visibility: hidden;
+        font-size: 10px;
+        padding: 5px;
+        margin: -15px;
+      }
+      #errorExplanation p {
+        color: red;
+        font-size: 12px;
+        margin-bottom: 0;
+        padding: 5px;
+      }
+      #errorExplanation ul li {
+        font-size: 12px;
+        list-style: square;
+      }
+      #notice {
+        margin: 5px;
+        padding: 5px 5px 5px 15px;
+        background-color: #48cccd;
+        border: 1px solid black;
+        font-size: 10px;
+        width: 400px;
+      }
+    </style>    
+  </head>
+  <body>
+    <div id="content">
+      <h1 style="margin: 0px;"><%= link_to "Futstat", root_path %></h1>
+      <%= yield :layout %>
+    </div>
+  </body>
+</html>      

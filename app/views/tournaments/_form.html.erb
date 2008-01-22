@@ -19,6 +19,7 @@
   <label for="tournament_finish_date"> Ends:</label>
   <%= date_select("tournament", "finish_date", :order => [:day, :month, :year]) %>
 </p>
+
 <h3>Participating teams:</h3>
 
 <% for team in @teams %>
@@ -30,5 +31,4 @@
   </p>                      
 <% end %>
 
-<br />               
 <%= submit_tag "Just Do It", :class => 'submit' %><br />

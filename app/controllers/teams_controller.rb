@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.new(params[:team])
     if @team.save
       flash[:notice] = "Team successfully created."
-      redirect_to team_path(team)
+      redirect_to teams_path
     else
       redirect_to :action => 'new'
     end

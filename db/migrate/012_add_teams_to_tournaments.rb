@@ -7,7 +7,7 @@ class AddTeamsToTournaments < ActiveRecord::Migration
   end
 
   def self.down
-    @apertura = Tournament.find('1016639365')
-    @apertura.teams.delete(:all)
+#    @apertura = Tournament.find('1016639365')
+#    @apertura.teams.delete(:all)
   end
 end

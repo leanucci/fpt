@@ -1,6 +1,12 @@
 <h3>teams</h3><%= link_to '(add)', new_team_path %>
 
-<%= flash[:notice] %>
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= error_messages_for :team %>
 
 <hr />
 <% for team in @teams do %>

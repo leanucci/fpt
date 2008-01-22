@@ -10,7 +10,7 @@ class TournamentsController < ApplicationController
 #FIXME:  @tournament = Tournament.find(params[:id],
 #FIXME:    :include => :standings,
 #FIXME:    :order   => "standings.scheduled_date")
-#FIXME:  @standings = @tournament.standings
+#FIXME:  @standings = @tournament.standings 
 
     @standings = Standing.find_by_tournament(params[:id])
     @tournament = @standings.first.tournament
@@ -18,15 +18,19 @@ class TournamentsController < ApplicationController
   end
 
   def new
-    @tournament = Tournament.new
     @teams = Team.safe_find_all
+    if @teams.size < 20
+      flash[:notice] = "Not enough teams for a tournament."          
+      redirect_to new_team_path
+    end   
+    @tournament = Tournament.new
   end
 
   def create
     params[:tournament][:team_ids] ||= []
     @tournament = Tournament.new(params[:tournament])
     if @tournament.save
-#      @tournament.teams << params[:tournament][:team_ids]
+      # @tournament.teams = params[:tournament][:team_ids]
       flash[:notice] = "Tournament successfully created."
       redirect_to tournaments_path
     else
@@ -40,7 +44,7 @@ class TournamentsController < ApplicationController
     @teams = Team.safe_find_all
   end
   
-  def update
+  def update    
     params[:tournament][:team_ids] ||= []
     @tournament = Tournament.find(params[:id])
     if @tournament.update_attributes(params[:tournament])

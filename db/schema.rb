@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 12) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "matches", :force => true do |t|
     t.integer "standing_id"
@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(:version => 12) do
     t.string "acronym_name"
     t.string "nickname_name"
   end
-
-  create_table "teams_tournaments", :id => false, :force => true do |t|
-    t.integer "team_id"
-    t.integer "tournament_id"
-  end
-
-  add_index "teams_tournaments", ["team_id"], :name => "index_teams_tournaments_on_team_id"
-  add_index "teams_tournaments", ["tournament_id"], :name => "index_teams_tournaments_on_tournament_id"
 
   create_table "tournaments", :force => true do |t|
     t.integer "t_type"
