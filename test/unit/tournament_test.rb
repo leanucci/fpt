@@ -65,11 +65,9 @@ class TournamentTest < ActiveSupport::TestCase
     assert !right_tournament.finish_date_ok?, "Shouldnt be any problems."
   end
   
-  def test_should_add_empty_standings_after_save
-#    tournament = create
-#    assert_equal 0, tournament.standings.count, "Should be zero."
-#    assert tournament.save
-#    assert_equal 19, tournament.standings.count, "should be 19."
+  def test_should_add_19_standings_after_save
+    tournament = create
+    assert_equal 19, tournament.standings.count, "should be 19."
   end
 
   private

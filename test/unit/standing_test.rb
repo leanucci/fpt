@@ -25,9 +25,4 @@ class StandingTest < ActiveSupport::TestCase
     assert standing.valid?, "Date kaboom!"
   end
   
-  def test_should_limit_to_ninteen_per_tournament
-    #TODO: test_should_limit_to_ninteen_per_tournament:
-    #TODO: this has to be tested somehow
-  end
-
 end

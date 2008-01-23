@@ -1,7 +1,7 @@
 class Standing < ActiveRecord::Base
 
   belongs_to  :tournament
-  has_many    :matches
+  has_many    :matches, :dependent => :destroy
 
   validate :scheduled_date_too_early?, :scheduled_date_too_late?
   
@@ -31,9 +31,5 @@ private
     end
     true
   end
-  
-  
-
-    # 2616015067 ana
   
 end

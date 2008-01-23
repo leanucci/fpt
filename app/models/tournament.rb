@@ -39,7 +39,7 @@ class Tournament < ActiveRecord::Base
   end
   
   def add_standings
-    18.times do |i|
+    19.times do |i|
     fecha = "fecha #{ i + 1 }"
     if fecha[-2,1] == " "
       fecha.insert(-2,'0')

@@ -1,31 +1,13 @@
 class StandingsController < ApplicationController
 
-  def index
-    @standings = Standing.find(:all)
-  end
-
   def show
     @standing = Standing.find(params[:id], 
                   :include => [ :tournament, :matches,
                               { :matches => [ :home_team, :away_team ] }] )
   end
 
-  def new
-    @standing = Standing.new
-  end
-
-  def create
-    @standing = Standing.new(params[:standing])
-    if @standing.save
-      flash[:notice] = "Standing successfully created."
-      redirect_to standing_path(standing)
-    else
-      redirect_to :action => 'new'
-    end
-  end
-  
   def edit
-    @standing = Standing.find(params[:id])
+    @standing = Standing.find(params[:id], :include => [ :tournament] )
   end
   
   def update
