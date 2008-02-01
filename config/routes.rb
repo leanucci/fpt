@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "welcome"
 #  map.resources :tournaments, :has_many => :standings
 #  map.resources :standings, :has_many => :matches, :belongs_to => :tournaments
+
   map.resources :tournaments do |tournament|
     tournament.resources :standings do |standing|
       standing.resources :matches

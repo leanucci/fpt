@@ -36,6 +36,7 @@ class TournamentsController < ApplicationController
   
   def edit
     @tournament = Tournament.find(params[:id])
+    @teams      = Team.find(:all)
   end
   
   def update    
@@ -55,6 +56,9 @@ class TournamentsController < ApplicationController
       flash[:notice] = "Something went wrong."
     end
     redirect_to :action => 'index'
+  end
+  
+  def add_teams
   end
   
 end

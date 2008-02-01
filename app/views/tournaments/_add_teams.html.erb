@@ -1,4 +1,4 @@
-<h3>Participating teams:</h3>
+<h3>Teams:</h3>
 
 <% for team in @teams %>
   <p>
@@ -8,3 +8,5 @@
     <%= team.short_name.titleize %>
   </p>                      
 <% end %>
+
+<%= submit_tag "Just Do It", :class => 'submit' %><br />
