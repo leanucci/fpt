@@ -1,0 +1,10 @@
+<p>
+  <label_for "scheduled_date">Scheduled date:</label>
+  <%= date_select("standing", "scheduled_date",
+                  :start_year => @tournament.season.year,
+                  :end_year   => @tournament.season.year,
+                  :field_separator => "/",
+                  :order => [:day, :month, :year]) %>
+</p>
+
+<%= submit_tag "Just do it", :class => 'submit' %>
