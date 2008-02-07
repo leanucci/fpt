@@ -46,7 +46,7 @@ class Tournament < ActiveRecord::Base
     end
       self.standings.create(
         :name => fecha,
-        :scheduled_date => self.start_date,
+        :scheduled_date => self.start_date + i.days,
         :tournament_id => self.id
       )
     end

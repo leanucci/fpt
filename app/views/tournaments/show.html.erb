@@ -1,3 +1,5 @@
+<%= link_to 'Tournaments', tournaments_path %> &gt; <%= get_tournament_type(@tournament) %> <%= @tournament.season.year %> 
+
 <h3>Torneo <%= get_tournament_type(@tournament) %> <%= @tournament.season.year %></h3>
 
 
@@ -12,10 +14,8 @@
 </p>
 <% @standings.each do |standing| %>
 <p>
-  <%=h standing.name %> 
+  <%=h standing.name.capitalize %> 
   (<%=h standing.scheduled_date.to_formatted_s(:rfc822) %>) 
   <%= link_to "ver", tournament_standing_path(standing.tournament, standing) %>
 </p>  
 <% end %>
-  
-<%= link_to 'tournaments', tournaments_path %>

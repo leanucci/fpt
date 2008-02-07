@@ -1,25 +1,30 @@
-<h3>Torneo <%= get_tournament_type(@standing.tournament) %> 
-<%= @standing.tournament.season.year %></h3>
+<%= link_to 'tournaments', tournaments_path %> &gt; 
+<%= link_to "#{get_tournament_type(@tournament)}" + " " + 
+"#{@tournament.season.year}", tournament_path(@tournament) %> &gt; 
+<%= @standing.name.capitalize %>:
 
-<h4><%= @standing.name.capitalize %></h4>
-<h4>Partidos:</h4> <%= @standing.matches.size %>
+<h3>
+  Torneo <%= get_tournament_type(@tournament) %> 
+  <%= @tournament.season.year %>
+</h3>
 
-<% if @standing.matches.nil? %>
+<h4>
+  <%= @standing.name.capitalize %>
+</h4>
+
+<% if @standing.matches.empty? %>
   <p>
-    There are no matches for this standing. In the future, this will redirect to
-    new_team_path.
+    Click 
+    <%= link_to "here", edit_tournament_standing_path(@standing.tournament, 
+    @standing) %> to edit this standing's matches.
   </p>
 <% else %>  
   <% for match in @standing.matches %>
-  <p>
-    <%= match.home_team.short_name %>
-    <%= match.home_team_score %> vs <%= match.away_team_score %> 
-    <%= match.away_team.short_name %>
-    (<%= match.played_date.to_formatted_s(:rfc822) %>)
-  </p>  
+    <p>
+      <%= match.home_team.short_name %>
+      <%= match.home_team_score %> vs <%= match.away_team_score %> 
+      <%= match.away_team.short_name %>
+      (<%= match.played_date.to_formatted_s(:rfc822) %>)
+    </p>  
   <% end %>
 <% end %>
-
-<%= link_to 'tournaments', tournaments_path %> &gt; 
-<%= link_to "#{get_tournament_type(@standing.tournament)}" + " " + "#{@standing.tournament.season.year}",
-  tournament_path(@standing.tournament) %>

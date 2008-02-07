@@ -4,15 +4,20 @@ class Standing < ActiveRecord::Base
   has_many    :matches, :dependent => :destroy
 
   validate :scheduled_date_too_early?, :scheduled_date_too_late?
-  
   validates_uniqueness_of   :name, :scope => :tournament_id
   validates_presence_of     :tournament_id
-#  validates_uniqueness_of   :scheduled_date
+  validates_uniqueness_of   :scheduled_date
   
-  def self.find_by_tournament(tournament_id)
-    self.find(:all, :conditions => ["tournament_id = ?", tournament_id], 
-                                     :include => :tournament, 
-                                     :order => "standings.scheduled_date")
+
+
+  def self.find_with_tournament_matches_teams(id)
+    self.find(id, :include => [ :tournament, :matches,
+                              { :matches => [ :home_team, :away_team ] }],
+                  :order   => "standings.scheduled_date" )
+  end
+
+  def self.find_with_tournament(id)
+    self.find(id, :include => :tournament, :order => "standings.scheduled_date")
   end
   
   

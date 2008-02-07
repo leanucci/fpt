@@ -1,13 +1,12 @@
 class StandingsController < ApplicationController
-
   def show
-    @standing = Standing.find(params[:id], 
-                  :include => [ :tournament, :matches,
-                              { :matches => [ :home_team, :away_team ] }] )
+    @standing = Standing.find_with_tournament_matches_teams(params[:id])
+    @tournament = @standing.tournament
   end
 
   def edit
-    @standing = Standing.find(params[:id], :include => [ :tournament] )
+    @standing = Standing.find_with_tournament_matches_teams(params[:id])
+    @tournament = @standing.tournament
   end
   
   def update
@@ -18,14 +17,5 @@ class StandingsController < ApplicationController
     else
       render :action => 'edit'  
     end
-  end
-  
-  def destroy
-    if Standing.find(params[:id]).destroy
-      flash[:notice] = "Standing went kaboom."
-    else
-      flash[:notice] = "Something went wrong."
-    end
-    redirect_to :action => 'index'
   end
 end
