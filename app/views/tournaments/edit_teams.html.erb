@@ -1,0 +1,6 @@
+<% form_for( :tournament,
+             :url  => add_teams_tournament_path(@tournament),
+             :html => { :method => :put }) do |f| %>
+
+ <%= render :partial => "add_teams", :locals => { :f => f} %>
+<% end %>

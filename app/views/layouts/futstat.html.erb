@@ -56,6 +56,8 @@
   <body>
     <div id="content">
       <h1 style="margin: 0px;"><%= link_to "Futstat", root_path %></h1>
+      <%= link_to 'Teams', teams_path %>
+      <%= link_to 'Tournaments', tournaments_path %>      
       <%= yield :layout %>
     </div>
   </body>

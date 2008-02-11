@@ -11,7 +11,8 @@ class Team < ActiveRecord::Base
                           
   has_many :home_teams,     :through => :visits
   
-  has_and_belongs_to_many   :tournaments
+  has_many :participations
+  has_many :tournaments, :through => :participations
   
 #  has_many :matches,        :finder_sql =>  'SELECT * FROM matches ' +
 #                                            'WHERE matches.home_team_id = #{id} ' +
@@ -28,5 +29,5 @@ class Team < ActiveRecord::Base
     @teams = Team.find(:all)
     return @teams ||= nil
   end
-  
+
 end

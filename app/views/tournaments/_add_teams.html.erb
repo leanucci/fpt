@@ -1,12 +1,12 @@
 <h3>Teams:</h3>
 
 <% for team in @teams %>
-  <p>
-    <%= check_box_tag "tournament[team_ids][]", 
-                    team.id, 
-                    @tournament.teams.include?(team) %>
-    <%= team.short_name.titleize %>
-  </p>                      
+ <p>
+   <%= check_box_tag "tournament[team_ids][]",
+                   team.id,
+                   @tournament.teams.include?(team) %>
+   <%= team.short_name.titleize %>
+ </p>
 <% end %>
 
 <%= submit_tag "Just Do It", :class => 'submit' %><br />

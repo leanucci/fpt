@@ -11,7 +11,9 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :teams
-  
+  map.resources :tournaments, 
+                :member     => {:edit_teams => :get, :add_teams  => :put}
+                  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

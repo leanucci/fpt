@@ -6,16 +6,25 @@
 <p>
   <b>Starts:</b>
   <%=h @tournament.start_date.to_formatted_s(:rfc822) %>
-</p>
-
-<p>
   <b>Ends:</b>
   <%=h @tournament.finish_date.to_formatted_s(:rfc822) %>
 </p>
-<% @standings.each do |standing| %>
+
+<% i = 1 %>
 <p>
-  <%=h standing.name.capitalize %> 
+<% @standings.each do |standing| %>
+  <%= link_to "#{standing.name.capitalize}", tournament_standing_path(standing.tournament, standing) %>
   (<%=h standing.scheduled_date.to_formatted_s(:rfc822) %>) 
-  <%= link_to "ver", tournament_standing_path(standing.tournament, standing) %>
-</p>  
+  <% if i.modulo(4) == 0 %>
+    </p><p>
+  <% else %>
+    &nbsp;
+  <% end %>
+  <% i = i+1 %>    
 <% end %>
+</p>
+<b><%= link_to 'Teams ', edit_teams_tournament_path(@tournament) %></b><br />
+
+<% @teams.each do |team| %>
+  <%= link_to "#{team.short_name.capitalize}", team_path(team) %>, 
+<% end %>  

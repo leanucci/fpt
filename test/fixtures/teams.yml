@@ -1,24 +1,20 @@
-# 01
 argentinos:
   short_name: argentinos jrs
   acronym_name: AAAJ
   complete_name: asociasion atletica argentinos juniors
   nickname_name: el bicho
 
-# 02
 arsenal:
   short_name: arsenal
   acronym_name: AFC
   complete_name: arsenal futbol club
 
-# 03
 banfield:
   short_name: banfield
   acronym_name: CAB
   complete_name: club atletico banfield
   nickname_name: el taladro
 
-# 04  
 boca:
   short_name: boca jrs
   acronym_name: CABJ

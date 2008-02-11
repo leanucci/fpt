@@ -8,9 +8,10 @@ class TournamentsController < ApplicationController
   
 #FIXME:  this doesnt eager load!!
     @tournament = Tournament.find(params[:id],
-      :include => :standings,
+      :include => [:standings, :teams],
       :order   => "standings.name")
     @standings = @tournament.standings 
+    @teams     = @tournament.teams
 
 #    @standings = Standing.find( :all,
 #                   :conditions => [ "tournament_id = ?", params[:id]],
@@ -19,7 +20,13 @@ class TournamentsController < ApplicationController
 
   end
 
-  def new  
+  def new
+    if @tournament.save!
+      redirect_to tournament_path(@tournament)
+      flash[:notice] = "Everythin ok."
+    else
+      flash.now[:notice] = "Save Fubar"
+    end
     @tournament = Tournament.new
   end
 
@@ -58,7 +65,20 @@ class TournamentsController < ApplicationController
     redirect_to :action => 'index'
   end
   
-  def add_teams
+  def edit_teams
+    @teams      = Team.find(:all)
+    @tournament = Tournament.find(params[:id])
   end
-  
+
+  def add_teams
+    params[:tournament][:team_ids] ||= []
+    @tournament = Tournament.find(params[:id])
+    @tournament.team_ids = params[:tournament][:team_ids]
+    if @tournament.save
+      redirect_to tournament_path(@tournament)
+      flash[:notice] = "Everythin ok."
+    else
+      redirect_to tournament_path(@tournament)
+    end
+  end
 end

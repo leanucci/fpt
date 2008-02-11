@@ -12,7 +12,8 @@ class Test::Unit::TestCase
     :t_type       => 2,
     :season       => "2007-01-01",
     :start_date   => "2007-02-10",
-    :finish_date  => "2007-06-15"
+    :finish_date  => "2007-06-15",
+    :team_ids     => []
   }
     
   self.use_transactional_fixtures = true

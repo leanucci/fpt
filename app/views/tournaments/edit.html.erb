@@ -15,13 +15,6 @@
   <%= render :partial => "form", :locals => { :f => f} %>
 <% end %>
 
-<% form_for( :tournament,
-              :url => tournament_path(@tournament),
-              :html => { :method => :post }) do |f| %>
-              
-  <%= render :partial => "add_teams", :locals => { :f => f} %>
-<% end %>  
-
 <br />
 
-<%= link_to 'tournaments', tournaments_path %>
+<%= link_to 'tournaments', tournaments_path %> <%= link_to 'edit teams', edit_teams_tournament_path(@tournament) %>
