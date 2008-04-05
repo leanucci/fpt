@@ -8,4 +8,8 @@ module TournamentsHelper
     end
   end
   
+  def get_team(id)
+    Team.find(id)
+  end
+  
 end

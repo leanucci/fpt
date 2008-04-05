@@ -25,4 +25,14 @@ class StandingTest < ActiveSupport::TestCase
     assert standing.valid?, "Date kaboom!"
   end
   
+  def test_should_create_10_matches_after_create
+    standing = Standing.create({
+      :tournament_id => tournaments(:clausura08).id,
+      :name => "fecha 01",
+      :scheduled_date => "2008-02-10",
+      :id => 1
+    })
+    assert_equal 10, standing.matches.size
+  end
+  
 end

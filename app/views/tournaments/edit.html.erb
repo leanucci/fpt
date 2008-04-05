@@ -1,4 +1,4 @@
-<h3>edit tournament</h3>
+<h3>edit tournament <%= link_to "(show)", tournament_path(@tournament) %></h3>
 
 <%= error_messages_for 'tournament' %>
 
@@ -17,4 +17,4 @@
 
 <br />
 
-<%= link_to 'tournaments', tournaments_path %> <%= link_to 'edit teams', edit_teams_tournament_path(@tournament) %>
+<%= link_to 'edit teams', edit_teams_tournament_path(@tournament) %>

@@ -1,12 +1,17 @@
 <h3>Teams:</h3>
 
+<% i=1 %>
 <% for team in @teams %>
- <p>
+<div style="min-width:150px;float:left;">
    <%= check_box_tag "tournament[team_ids][]",
                    team.id,
                    @tournament.teams.include?(team) %>
    <%= team.short_name.titleize %>
- </p>
+</div>   
+  <% if i.modulo(4) == 0 %>
+    <br />
+  <% end %>
+  <% i = i+1 %>    
 <% end %>
-
+<br /><br />
 <%= submit_tag "Just Do It", :class => 'submit' %><br />

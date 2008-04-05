@@ -45,4 +45,9 @@ class TeamsController < ApplicationController
     redirect_to :action => 'index'
   end
   
+  def sort_teams
+    @teams = params[:list]
+    render :partial => 'matches'
+  end
+  
 end

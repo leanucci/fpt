@@ -61,20 +61,16 @@ class Tournament < ActiveRecord::Base
   end
   
   def fulfill_teams
-#    if has_teams?
-      Participation.destroy_all(:tournament_id == self.id)
-      self.team_ids.each do |t|
-        Participation.create(:team_id => t, :tournament_id => self.id)
-      end
-#    end
+    Participation.destroy_all(:tournament_id == self.id)
+    self.team_ids.each do |t|
+      Participation.create(:team_id => t, :tournament_id => self.id)
+    end
   end
   
   def too_many_teams?
-#    if has_teams?
-      if self.team_ids.size > 20
-        self.errors.add :teams, "cant pass 20."
-      end
-#    end
+    if self.team_ids.size > 20
+      self.errors.add :teams, "cant pass 20."
+    end
   end
   
   def has_teams?

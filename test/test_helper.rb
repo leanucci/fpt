@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
 class Test::Unit::TestCase
-  fixtures :tournaments
+  fixtures :tournaments, :standings, :teams, :matches
   ##
   # Variable de clase con los datos de un torneo valido (apertura 2007)
 

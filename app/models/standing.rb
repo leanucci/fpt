@@ -8,7 +8,7 @@ class Standing < ActiveRecord::Base
   validates_presence_of     :tournament_id
   validates_uniqueness_of   :scheduled_date
   
-
+  after_create :add_matches
 
   def self.find_with_tournament_matches_teams(id)
     self.find(id, :include => [ :tournament, :matches,
@@ -36,5 +36,11 @@ private
     end
     true
   end
+  
+   def add_matches
+    10.times do
+      self.matches.create
+    end
+  end 
   
 end

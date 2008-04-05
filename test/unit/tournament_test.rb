@@ -12,7 +12,7 @@ class TournamentTest < ActiveSupport::TestCase
       :start_date   => "2007-02-10",
       :finish_date  => "2007-06-15" )
     assert @tournament.valid?, "Tournament invalid."
-#    assert @tournament.save, "Didnt save!"
+    assert @tournament.save, "Didnt save!"
     assert_equal Tournament.count, old_count + 1, "Tournament didnt get saved."
   end
   
@@ -94,6 +94,11 @@ class TournamentTest < ActiveSupport::TestCase
     assert @tournament.errors.empty?, "#{@tournament.errors.full_messages}"
     assert_not_equal old_count, @tournament.teams, "Fails 1"
     assert_equal 20, @tournament.teams.size, "Fails 2"
+  end
+  
+  def test_should_create_10_matches_per_standing
+    @tournament = create
+    assert_equal 10, @tournament.standings.first.matches.size
   end
 
   private

@@ -1,0 +1,118 @@
+body {
+  font-family: arial;
+  background-color: #30787e;
+}
+a:link, a:visited {color: #7D7D7D; text-decoration: none;}
+
+#content {
+  margin: 30px auto;
+  border: 3px solid black;
+  width: 1000px;
+}
+#content h3 {
+  margin: 0 0 10px 0;
+}
+#title {
+  background-color: #307E36;
+  border-bottom: 2px solid black;
+  height: 100px;
+}
+#title h1 {
+  margin: 0;
+  padding: 32px 32px 0 0;
+  text-align: right;
+  font-style: oblique;
+}
+#yield {
+  padding: 10px;
+  float: left;
+  width: 980px;
+  margin: 0;
+  background-color: white;
+  min-height: 400px;  
+}
+#yield hr {
+  width: 90%;
+  margin-left:0;
+}
+#footer {
+  height: 75px;
+  padding: 10px;
+  clear: both;
+  margin: 0;
+  background-color: #307E36;
+  border-top: 2px solid black;  
+}
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+}
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0 ;
+}
+#errorExplanation h2 {
+  visibility: hidden;
+  font-size: 10px;
+  padding: 5px;
+  margin: -15px;
+}
+#errorExplanation p {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+#notice {
+  margin: 5px;
+  padding: 5px 5px 5px 15px;
+  background-color: #48cccd;
+  border: 1px solid black;
+  font-size: 10px;
+  width: 400px;
+}
+.msg {
+  text-align: center;
+  background-color: #9DA358;
+  padding: 10px;
+}
+#excluded {
+  margin: 0;
+  padding: 5px;
+  border: 2px solid #8B2B23;
+  width: 200px;
+  float: left;
+  min-height: 266px;
+}
+
+#included {
+  margin-left: 10px;
+  width: 756px;
+  float: left;
+}
+#teamslist {
+  border: 2px solid #307E36;
+  margin-bottom: 10px;
+  height: 150px;
+  padding: 5px;
+}
+#eliminator {
+  text-align: center;
+  width: 752px;
+  color: grey;
+  float: left;
+  height: 100px;
+  border: 2px solid red;
+}
+.excluded_teams,.competitors {
+  width: 140px;
+  float: left;
+}

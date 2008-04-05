@@ -13,18 +13,38 @@
 </h4>
 
 <% if @standing.matches.empty? %>
-  <p>
+  <div class="msg">
     Click 
-    <%= link_to "here", edit_tournament_standing_path(@standing.tournament, 
-    @standing) %> to edit this standing's matches.
-  </p>
-<% else %>  
-  <% for match in @standing.matches %>
-    <p>
-      <%= match.home_team.short_name %>
-      <%= match.home_team_score %> vs <%= match.away_team_score %> 
-      <%= match.away_team.short_name %>
-      (<%= match.played_date.to_formatted_s(:rfc822) %>)
-    </p>  
-  <% end %>
+    <%= link_to "here", edit_tournament_standing_path(@standing.tournament, @standing) %> 
+    to edit this standing's matches.
+  </div>
+<% else %>
+  <ul style="list-style-type:none;padding-left:0px"> 
+    <li>
+      <div style="float:left;width:130px;">Jugado</div>
+      <div style="float:left;width:150px;">Local</div>
+      <div style="float:left;width:60px;">Goles</div>
+      <div style="float:left;width:60px;">Goles</div>
+      <div style="float:left;width:150px;">Visitante</div>
+    </li><br />
+    <% for match in @standing.matches %>
+    <li>
+      <div style="float:left;width:130px;"><%= played(match) %></div>
+      <div style="float:left;width:150px;"><%= name(match.home_team) %></div>
+      <div style="float:left;width:60px;"><%= match.home_team_score %></div>
+      <div style="float:left;width:60px;"><%= match.away_team_score %></div>
+      <div style="float:left;width:150px;"><%= name(match.away_team) %></div>
+    </li><br />
+    <% end %>
+  </ul>
 <% end %>
+<ul id="list">
+  <% for team in @tournament.teams -%>
+    <li id="team_<%= team.id %>"><%= team.short_name %> </li>
+  <% end %>
+</ul>
+<div id="matches">
+</div>
+<%= sortable_element 'list',
+    :update => 'matches',
+    :url => sort_teams_team_path %>

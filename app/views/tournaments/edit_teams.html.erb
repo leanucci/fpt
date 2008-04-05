@@ -1,6 +1,33 @@
-<% form_for( :tournament,
-             :url  => add_teams_tournament_path(@tournament),
-             :html => { :method => :put }) do |f| %>
+<div id="nav">
+<%= link_to get_tournament_type(@tournament) + " " + @tournament.season.year.to_s, edit_tournament_path(@tournament) %>
+</div>
 
- <%= render :partial => "add_teams", :locals => { :f => f} %>
-<% end %>
+<div id="excluded">
+  <%= render :partial => 'excluded_teams' %>
+</div>
+
+<div id="included">
+
+  <div id="teamslist">
+    <%= render :partial => 'teams_included' %>
+  </div>
+
+
+<div id="eliminator">
+  <br /><br />
+  Drop included team here to remove it from tournament.
+</div>
+</div>
+<%= drop_receiving_element "included",
+          :update => "teamslist", 
+          :url => push_team_tournament_path,
+          :with => "'team=' + encodeURIComponent(element.id.split('_').last())",
+          :accept => "excluded_teams", 
+          :loading => "Element.hide(element)" %>
+
+<%= drop_receiving_element "eliminator",
+          :update => "excluded", 
+          :url => remove_team_tournament_path,
+          :with => "'team=' + encodeURIComponent(element.id.split('_').last())",
+          :accept => "competitors", 
+          :loading => "Element.hide(element)" %>
