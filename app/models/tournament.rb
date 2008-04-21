@@ -11,7 +11,7 @@ class Tournament < ActiveRecord::Base
   
   validates_uniqueness_of     :t_type, :scope => :season, 
     :message => "can have only one type per season"
-    
+        
   validates_presence_of       :start_date, :finish_date, :t_type, :season
   validates_numericality_of   :t_type
   validates_length_of         :t_type, :is => 4

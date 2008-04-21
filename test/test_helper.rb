@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require 'redgreen'
 
 class Test::Unit::TestCase
   fixtures :tournaments, :standings, :teams, :matches
@@ -8,7 +9,7 @@ class Test::Unit::TestCase
   # Variable de clase con los datos de un torneo valido (apertura 2007)
 
   @@tournament_default_values = {
-    :id           => 1,
+#    :id           => 1,
     :t_type       => 2,
     :season       => "2007-01-01",
     :start_date   => "2007-02-10",

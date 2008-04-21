@@ -11,9 +11,9 @@ test:
   password:
   socket: /tmp/mysql.sock
 
-production:
-  adapter: mysql
-  database: fpt_production
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+#production:
+#  adapter: mysql
+#  database: fpt_production
+#  username: root
+#  password: 
+#  socket: /tmp/mysql.sock

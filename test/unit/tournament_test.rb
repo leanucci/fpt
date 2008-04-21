@@ -5,15 +5,17 @@ class TournamentTest < ActiveSupport::TestCase
   
   def test_should_create_valid_record
     old_count = Tournament.count
-    @tournament = create(
-      :id           => 1, 
-      :t_type       => 2, 
-      :season       => "2007-01-01", 
-      :start_date   => "2007-02-10",
-      :finish_date  => "2007-06-15" )
+    @tournament = create
     assert @tournament.valid?, "Tournament invalid."
     assert @tournament.save, "Didnt save!"
     assert_equal Tournament.count, old_count + 1, "Tournament didnt get saved."
+  end
+  
+  def test_should_not_create_tournament_copies
+    old_count = Tournament.count
+    @original = create
+    @duplicate = create
+    assert_equal Tournament.count, old_count + 1, "Should'nt allow Tournament copies."
   end
   
   def test_should_not_create_record_starting_after_end
@@ -47,7 +49,8 @@ class TournamentTest < ActiveSupport::TestCase
       :t_type       => 2,
       :season       => "2008-01-01",
       :start_date   => "2008-02-10",
-      :finish_date  => "2008-06-15"  })
+      :finish_date  => "2008-06-15",
+      :team_ids     => []  })
     assert !@same_tournament.valid?, "Shouldnt save repeated tournament."
     assert !@same_tournament.errors.on(:t_type).empty?, "Cant set two equal tournaments for a given season."
   end
