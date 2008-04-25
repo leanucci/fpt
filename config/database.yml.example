@@ -1,0 +1,19 @@
+development:
+  adapter: mysql
+  database: fpt_development
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+test:
+  adapter: mysql
+  database: fpt_test
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+#production:
+#  adapter: mysql
+#  database: fpt_production
+#  username: root
+#  password: 
+#  socket: /tmp/mysql.sock
