@@ -1,6 +1,6 @@
 <h3>included teams</h3>
 <% for team in @included %>
   <div id="team_<%= team.id %>" class="competitors"><%= team.short_name.capitalize %></div>
-  <%= draggable_element "team_#{team.id}", :revert => true, :success => "Element.hide" %>
+  <%= draggable_element "team_#{team.id}", :revert => true, :success => "Element.remove" %>
 <% end %>
 <%= "Drop teams here." if @included.empty? %>

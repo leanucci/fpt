@@ -87,13 +87,13 @@ class TournamentsController < ApplicationController
       @included = @tournament.reload.teams
       @excluded = Team.find(:all) - @included
       
-      render :partial => 'teams_included'
+#      render :partial => 'teams_included'
     else
       #@hide = Team.find(params[:team])
       @included = @tournament.teams
       @excluded = Team.find(:all) - @included
 
-       render :partial => 'teams_included'
+#       render :partial => 'teams_included'
     end
 #    THIS WORKS!!  
 #    @tournament = Tournament.find(params[:id])
@@ -102,7 +102,7 @@ class TournamentsController < ApplicationController
 #    @included = @tournament.teams(:order => "short_name")
 #    @excluded = Team.find(:all, :order => "short_name") - @included
 #    
-#    render :partial => 'teams_included'
+    render :partial => 'teams_included'
   end
   
   def remove_team
@@ -111,7 +111,7 @@ class TournamentsController < ApplicationController
     @included = @tournament.teams
     @excluded = Team.find(:all, :order => "short_name") - @included
     
-    render :partial => 'excluded_teams'
+    render :partial => 'teams_excluded'
 
   end
 end
