@@ -5,18 +5,10 @@ class TournamentsController < ApplicationController
   end
 
   def show
-  
 #FIXME:  this doesnt eager load!!
     @tournament = Tournament.find(params[:id], :include => [:standings, :teams],
                                                :order   => "standings.name")
-    @standings = @tournament.standings 
     @teams     = @tournament.teams
-
-#    @standings = Standing.find( :all,
-#                   :conditions => [ "tournament_id = ?", params[:id]],
-#                   :order => "name ASC")
-#    @tournament = @standings.first.tournament
-
   end
 
   def new
@@ -34,22 +26,22 @@ class TournamentsController < ApplicationController
       redirect_to :action => 'new'
     end
   end
-  
+
   def edit
     @tournament = Tournament.find(params[:id])
     @teams      = Team.find(:all)
   end
-  
-  def update    
+
+  def update
     @tournament = Tournament.find(params[:id])
     if @tournament.update_attributes(params[:tournament])
       flash[:notice] = "Changes Saved."
       redirect_to :action => 'index'
     else
-      render :action => 'edit'  
+      render :action => 'edit'
     end
   end
-  
+
   def destroy
     if Tournament.find(params[:id]).destroy
       flash[:notice] = "Tournament went kaboom."
@@ -58,7 +50,7 @@ class TournamentsController < ApplicationController
     end
     redirect_to :action => 'index'
   end
-  
+
   def edit_teams
     @tournament = Tournament.find(params[:id], :include => :teams)
     @teams = Team.find(:all, :order => "short_name")
@@ -77,7 +69,7 @@ class TournamentsController < ApplicationController
 #      redirect_to tournament_path(@tournament)
 #    end
 #  end
-  
+
   def push_team
     @tournament = Tournament.find(params[:id], :include => :teams)
     @tournament.team_ids =  Array.[](@tournament.teams.map {|x| x.id}).flatten
@@ -86,7 +78,7 @@ class TournamentsController < ApplicationController
       #@hide = Team.find(params[:team])
       @included = @tournament.reload.teams
       @excluded = Team.find(:all) - @included
-      
+
 #      render :partial => 'teams_included'
     else
       #@hide = Team.find(params[:team])
@@ -95,22 +87,22 @@ class TournamentsController < ApplicationController
 
 #       render :partial => 'teams_included'
     end
-#    THIS WORKS!!  
+#    THIS WORKS!!
 #    @tournament = Tournament.find(params[:id])
 #    @hide = Team.find(params[:team], :order => "short_name" )
 #    @tournament.teams << @hide
 #    @included = @tournament.teams(:order => "short_name")
 #    @excluded = Team.find(:all, :order => "short_name") - @included
-#    
+#
     render :partial => 'teams_included'
   end
-  
+
   def remove_team
     @tournament = Tournament.find(params[:id])
     @tournament.participations.find_by_team_id(params[:team]).destroy
     @included = @tournament.teams
     @excluded = Team.find(:all, :order => "short_name") - @included
-    
+
     render :partial => 'teams_excluded'
 
   end

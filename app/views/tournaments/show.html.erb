@@ -17,10 +17,10 @@
 <% i = 0 -%>
 <div style="width:205px;float:left;">
   <ul style="list-style-type:none;padding-left:5px;">
-  <% for standing in @standings %>
+  <% for standing in @tournament.standings %>
     <li>
       <%= link_to "#{standing.name.capitalize}",
-                    tournament_standing_path(standing.tournament, standing) %>
+                    tournament_standing_path(@tournament, standing) %>
       (<%=h standing.scheduled_date.to_formatted_s(:rfc822) %>)
     </li>
     <% i = i + 1 -%>
@@ -37,7 +37,7 @@
 <div style="clear:both;">
 <b><%= link_to 'Teams ', edit_teams_tournament_path(@tournament) %></b><br />
 
-<% @teams.each do |team| %>
+<% @tournament.teams.each do |team| %>
   <%= link_to "#{team.short_name.capitalize}", team_path(team) %>&nbsp;
 <% end %>
 </div>
