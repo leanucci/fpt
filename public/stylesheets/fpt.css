@@ -29,7 +29,7 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   width: 980px;
   margin: 0;
   background-color: white;
-  min-height: 400px;  
+  min-height: 400px;
 }
 #yield hr {
   width: 90%;
@@ -41,7 +41,7 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   clear: both;
   margin: 0;
   background-color: #307E36;
-  border-top: 2px solid black;  
+  border-top: 2px solid black;
 }
 .fieldWithErrors {
   padding: 2px;
