@@ -1,33 +1,34 @@
-<div id="nav">
-<%= link_to get_tournament_type(@tournament) + " " + @tournament.season.year.to_s, edit_tournament_path(@tournament) %>
+<div class="nav">
+  <%= link_to get_tournament_type(@tournament) + " " +
+  @tournament.season.year.to_s, edit_tournament_path(@tournament) %>
 </div>
 
-<div id="excluded">
+<div class="excluded" id="excluded">
   <%= render :partial => 'teams_excluded' %>
 </div>
 
-<div id="included">
+<div class="included" id="included">
 
-  <div id="teamslist">
+  <div class="teamslist" id="teamslist">
     <%= render :partial => 'teams_included' %>
   </div>
 
 
-<div id="eliminator">
+<div class="eliminator" id="eliminator">
   <br /><br />
   Drop included team here to remove it from tournament.
 </div>
 </div>
 <%= drop_receiving_element "included",
-          :update => "teamslist", 
+          :update => "teamslist",
           :url => push_team_tournament_path,
           :with => "'team=' + encodeURIComponent(element.id.split('_').last())",
-          :accept => "excluded_teams", 
+          :accept => "excluded_teams",
           :loading => "Element.hide(element)" %>
 
 <%= drop_receiving_element "eliminator",
-          :update => "excluded", 
+          :update => "excluded",
           :url => remove_team_tournament_path,
           :with => "'team=' + encodeURIComponent(element.id.split('_').last())",
-          :accept => "competitors", 
+          :accept => "competitors",
           :loading => "Element.hide(element)" %>

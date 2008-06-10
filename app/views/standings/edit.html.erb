@@ -1,19 +1,19 @@
-<%= link_to 'tournaments', tournaments_path %> &gt; 
-<%= link_to "#{get_tournament_type(@tournament)}" + " " + "#{@tournament.season.year}", 
-  tournament_path(@tournament) %> &gt; 
+<%= link_to 'tournaments', tournaments_path %> &gt;
+<%= link_to "#{get_tournament_type(@tournament)}" + " " + "#{@tournament.season.year}",
+  tournament_path(@tournament) %> &gt;
 <%= link_to "#{@standing.name.capitalize}", tournament_standing_path(@standing.tournament, @standing) %> &gt;
 Edit:
 
 <%= error_messages_for 'tournament', 'standing', 'match' %>
 
 <% if flash[:notice] %>
-  <div id="notice">
+  <div class="notice">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
 <h3>
-  Torneo <%= get_tournament_type(@tournament) %> 
+  Torneo <%= get_tournament_type(@tournament) %>
   <%= @tournament.season.year %>
 </h3>
 
@@ -21,10 +21,10 @@ Edit:
   <%= @standing.name.capitalize %>
 </h4>
 
-<% form_for(  :standing, 
+<% form_for(  :standing,
               :url => tournament_standing_path(params[:tournament_id], @standing),
               :html => { :method => :put }) do |f| %>
-              
+
   <%= render :partial => "form", :locals => { :f => f} %>
 <% end %>
 

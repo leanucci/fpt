@@ -1,10 +1,10 @@
-<%= link_to 'tournaments', tournaments_path %> &gt; 
-<%= link_to "#{get_tournament_type(@tournament)}" + " " + 
-"#{@tournament.season.year}", tournament_path(@tournament) %> &gt; 
+<%= link_to 'tournaments', tournaments_path %> &gt;
+<%= link_to "#{get_tournament_type(@tournament)}" + " " +
+"#{@tournament.season.year}", tournament_path(@tournament) %> &gt;
 <%= @standing.name.capitalize %>:
 
 <h3>
-  Torneo <%= get_tournament_type(@tournament) %> 
+  Torneo <%= get_tournament_type(@tournament) %>
   <%= @tournament.season.year %>
 </h3>
 
@@ -14,12 +14,12 @@
 
 <% if @standing.matches.empty? %>
   <div class="msg">
-    Click 
-    <%= link_to "here", edit_tournament_standing_path(@standing.tournament, @standing) %> 
+    Click
+    <%= link_to "here", edit_tournament_standing_path(@standing.tournament, @standing) %>
     to edit this standing's matches.
   </div>
 <% else %>
-  <ul style="list-style-type:none;padding-left:0px"> 
+  <ul style="list-style-type:none;padding-left:0px">
     <li>
       <div style="float:left;width:130px;">Jugado</div>
       <div style="float:left;width:150px;">Local</div>
@@ -38,12 +38,12 @@
     <% end %>
   </ul>
 <% end %>
-<ul id="list">
+<ul class="list">
   <% for team in @tournament.teams -%>
-    <li id="team_<%= team.id %>"><%= team.short_name %> </li>
+    <li class="team_<%= team.id %>"><%= team.short_name %> </li>
   <% end %>
 </ul>
-<div id="matches">
+<div class="matches">
 </div>
 <%= sortable_element 'list',
     :update => 'matches',

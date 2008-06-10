@@ -10,16 +10,16 @@
     <%= javascript_include_tag :all %>
   </head>
   <body>
-    <div id="content">
-      <div id="title">
+    <div class="content">
+      <div class="title">
         <h1>
           <%= link_to "FutStat.", root_path, :style => "color:black;" %>
         </h1>
       </div>
-      <div id="yield">
+      <div class="yield">
         <%= yield :layout %>
       </div>
-      <div id="footer" class="footer">
+      <div class="footer" class="footer">
         Footer vieja!
       </div>
     </div>

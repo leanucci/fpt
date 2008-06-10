@@ -3,17 +3,20 @@
 <%= error_messages_for :tournament %>
 
 <% if flash[:notice] %>
-  <div id="notice">
+  <div class="notice">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
 <hr />
 <% for tournament in @tournaments do %>
-Torneo <%= get_tournament_type(tournament) %>
-<%= tournament.season.year %> :: Comienza <%= tournament.start_date.to_formatted_s(:rfc822) %>, Termina <%= tournament.finish_date.to_formatted_s(:rfc822) %> | 
-  <%= link_to 'edit', edit_tournament_path(tournament) %> | 
-  <%= link_to 'delete', tournament_path(tournament), :confirm => "ohrly?", :method => :delete %> | 
-  <%= link_to 'show', tournament_path(tournament) %>
-<hr />
+  Torneo <%= get_tournament_type(tournament) %>
+  <%= tournament.season.year %> ::
+    Comienza <%= tournament.start_date.to_formatted_s(:rfc822) %>,
+    Termina <%= tournament.finish_date.to_formatted_s(:rfc822) %> |
+    <%= link_to 'edit', edit_tournament_path(tournament) %> |
+    <%= link_to 'delete', tournament_path(tournament),
+                          :confirm => "ohrly?", :method => :delete %> |
+    <%= link_to 'show', tournament_path(tournament) %>
+  <hr />
 <% end %>
