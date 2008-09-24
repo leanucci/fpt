@@ -1,4 +1,4 @@
-<h3>tournaments <%= link_to '(add)', new_tournament_path %></h3>
+<h2>tournaments <%= link_to "(add)", new_tournament_path %></h2>
 
 <%= error_messages_for :tournament %>
 
@@ -8,15 +8,38 @@
   </div>
 <% end %>
 
+<br />
+<br />
+<div>
+  <div class="table_column300 left">
+    <h3>tournament name</h3>
+  </div>
+  <div class="table_column100 left">
+    <h3>starts</h3>
+  </div>
+  <div class="table_column100 left">
+    <h3>ends</h3>
+  </div>
+</div>
+<%= splitter %>
 <hr />
+<br />
 <% for tournament in @tournaments do %>
-  Torneo <%= get_tournament_type(tournament) %>
-  <%= tournament.season.year %> ::
-    Comienza <%= tournament.start_date.to_formatted_s(:rfc822) %>,
-    Termina <%= tournament.finish_date.to_formatted_s(:rfc822) %> |
-    <%= link_to 'edit', edit_tournament_path(tournament) %> |
-    <%= link_to 'delete', tournament_path(tournament),
-                          :confirm => "ohrly?", :method => :delete %> |
-    <%= link_to 'show', tournament_path(tournament) %>
-  <hr />
+  <div>
+    <div class="table_column300 left">
+      <h4><%= link_to(tournament.name_for_listing, tournament_path(tournament)) %></h4>
+    </div>
+    <div class="table_column100 left">
+      <%= tournament.start_date.to_formatted_s(:rfc822) %>
+    </div>
+    <div class="table_column100 left">
+      <%= tournament.finish_date.to_formatted_s(:rfc822) %>
+    </div>
+      <%= link_to "edit", edit_tournament_path(tournament) %> |
+      <%= link_to "delete", tournament_path(tournament),
+                            :confirm => "ohrly?", :method => :delete %>
+      <% unless tournament.id == @tournaments.last.id %>
+      <hr />
+      <% end %>
+  </div>
 <% end %>

@@ -1,10 +1,17 @@
 /*****************************************************************************/
 /**************************** ESTILOS GENERALES ******************************/
 /*****************************************************************************/
-body {
-  font-family: arial;
-  background-color: #30787e;
+html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, form, fieldset {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
 }
+
+body {
+  font: 12px Verdana;
+	background: #30787e;
+	text-align: left;
+ 	}
 
 a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 
@@ -13,19 +20,26 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   border: 3px solid black;
   width: 1000px;
 }
-.content h3 {
-  margin: 0 0 10px 0;
+.content h2 {
+  margin: 10px 0 0 0;
 }
 .title {
   background-color: #307E36;
-  border-bottom: 2px solid black;
   height: 100px;
+  width: 100%;
+  float:left;
 }
 .title h1 {
   margin: 0;
   padding: 32px 32px 0 0;
   text-align: right;
   font-style: oblique;
+}
+
+.nav {
+  background-color: #086B00;
+  width: 100%;
+  float: left;
 }
 .yield {
   padding: 10px;
@@ -46,6 +60,9 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   margin: 0;
   background-color: #307E36;
   border-top: 2px solid black;
+}
+.splitter {
+  clear: both;
 }
 
 /*****************************************************************************/
@@ -102,7 +119,7 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 /*****************************************************************************/
 /**************************** TEAM TO TOURNAMENT *****************************/
 /*****************************************************************************/
-.excluded {
+#excluded {
   margin: 0;
   padding: 5px;
   border: 2px solid #8B2B23;
@@ -111,18 +128,18 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   min-height: 266px;
 }
 
-.included {
+#included {
   margin-left: 10px;
   width: 756px;
   float: left;
 }
-.teamslist {
+#teamslist {
   border: 2px solid #307E36;
   margin-bottom: 10px;
   height: 150px;
   padding: 5px;
 }
-.eliminator {
+#eliminator {
   text-align: center;
   width: 752px;
   color: grey;
@@ -134,3 +151,28 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   width: 140px;
   float: left;
 }
+
+.new_navigation ul {
+  line-height: 200%;
+}
+.new_navigation ul li {
+	font-weight: bold;
+	list-style-type: none;
+	float: left;
+	margin-right: 15px;
+	margin-left: 10px;
+	color: #c3d6e1;
+}
+.new_navigation a {
+  font-weight: bold;
+  color: white;
+}
+.new_nav_top {
+  border-bottom: 1px solid #333333;
+}
+/*****************************************************************************/
+/******************************** TABLEs *************************************/
+/*****************************************************************************/
+.left { float: left; }
+.table_column100 { width: 100px; }
+.table_column300 { width: 300px; }

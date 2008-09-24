@@ -1,4 +1,4 @@
-<h3>teams</h3><%= link_to '(add)', new_team_path %>
+<h2>teams <%= link_to "(add new)", new_team_path %></h2>
 
 <% if flash[:notice] %>
   <div class="notice">
@@ -8,12 +8,29 @@
 
 <%= error_messages_for :team %>
 
+<br />
+<br />
+<div>
+  <div class="table_column300 left">
+    <h3>team name</h3>
+  </div>
+</div>
+<%= splitter %>
 <hr />
-<% for team in @teams do %>
+<br />
 
-<%= team.short_name %> :: <%= team.nickname_name %> |
-  <%= link_to 'edit', edit_team_path(team) %> |
-  <%= link_to 'delete', team_path(team), :confirm => "ohrly?", :method => :delete %> |
-  <%= link_to 'show', team_path(team) %>
-<hr />
+
+<% for team in @teams do %>
+  <div>
+    <div class="table_column300 left">
+      <h4><%= link_to(team.short_name, team_path(team)) %></h4>
+    </div>
+    <div class="table_column100 left">
+      <%= link_to "edit", edit_team_path(team) %> | <%= link_to "delete", team_path(team), :confirm => "ohrly?", :method => :delete %>
+    </div>
+  </div>
+  <%= splitter %>
+  <% unless team.id == @teams.last.id -%>
+    <hr />
+  <% end %>
 <% end %>

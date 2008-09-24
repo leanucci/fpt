@@ -5,10 +5,9 @@ class TournamentsController < ApplicationController
   end
 
   def show
-#FIXME:  this doesnt eager load!!
     @tournament = Tournament.find(params[:id], :include => [:standings, :teams],
-                                               :order   => "standings.name")
-    @teams     = @tournament.teams
+                                  :order => "standings.name")
+    @teams = @tournament.teams
   end
 
   def new
@@ -58,42 +57,17 @@ class TournamentsController < ApplicationController
     @included = @tournament.teams()
   end
 
-#  def add_teams
-#    params[:tournament][:team_ids] ||= []
-#    @tournament = Tournament.find(params[:id])
-#    @tournament.team_ids = params[:tournament][:team_ids]
-#    if @tournament.save
-#      redirect_to tournament_path(@tournament)
-#      flash[:notice] = "Everythin ok."
-#    else
-#      redirect_to tournament_path(@tournament)
-#    end
-#  end
-
   def push_team
     @tournament = Tournament.find(params[:id], :include => :teams)
     @tournament.team_ids =  Array.[](@tournament.teams.map {|x| x.id}).flatten
     @tournament.team_ids << params[:team]
     if @tournament.save
-      #@hide = Team.find(params[:team])
       @included = @tournament.reload.teams
       @excluded = Team.find(:all) - @included
-
-#      render :partial => 'teams_included'
     else
-      #@hide = Team.find(params[:team])
       @included = @tournament.teams
       @excluded = Team.find(:all) - @included
-
-#       render :partial => 'teams_included'
     end
-#    THIS WORKS!!
-#    @tournament = Tournament.find(params[:id])
-#    @hide = Team.find(params[:team], :order => "short_name" )
-#    @tournament.teams << @hide
-#    @included = @tournament.teams(:order => "short_name")
-#    @excluded = Team.find(:all, :order => "short_name") - @included
-#
     render :partial => 'teams_included'
   end
 
@@ -102,8 +76,6 @@ class TournamentsController < ApplicationController
     @tournament.participations.find_by_team_id(params[:team]).destroy
     @included = @tournament.teams
     @excluded = Team.find(:all, :order => "short_name") - @included
-
     render :partial => 'teams_excluded'
-
   end
 end

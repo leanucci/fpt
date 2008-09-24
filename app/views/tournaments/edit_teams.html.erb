@@ -1,20 +1,19 @@
-<div class="nav">
-  <%= link_to get_tournament_type(@tournament) + " " +
-  @tournament.season.year.to_s, edit_tournament_path(@tournament) %>
+<div id="nav">
+<%= link_to get_tournament_type(@tournament) + " " + @tournament.season.year.to_s, edit_tournament_path(@tournament) %>
 </div>
 
-<div class="excluded" id="excluded">
+<div id="excluded">
   <%= render :partial => 'teams_excluded' %>
 </div>
 
-<div class="included" id="included">
+<div id="included">
 
-  <div class="teamslist" id="teamslist">
+  <div id="teamslist">
     <%= render :partial => 'teams_included' %>
   </div>
 
 
-<div class="eliminator" id="eliminator">
+<div id="eliminator">
   <br /><br />
   Drop included team here to remove it from tournament.
 </div>

@@ -1,5 +1,7 @@
 <h3>excluded teams</h3>
 <% for team in @excluded %>
   <div id="team_<%= team.id %>" class="excluded_teams"><%= team.short_name.capitalize %></div>
-  <%= draggable_element "team_#{team.id}", :revert => true, :success => "Element.remove" %>
+  <%= draggable_element "team_#{team.id}", :revert => true,
+                                           :success => "Element.remove",
+                                           :failure => "Element.revert" %>
 <% end %>

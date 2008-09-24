@@ -22,21 +22,21 @@ class MatchesController < ApplicationController
       redirect_to :action => 'new'
     end
   end
-  
+
   def edit
     @match = Match.find(params[:id])
   end
-  
+
   def update
     @match = Match.find(params[:id])
     if @match.update_attributes(params[:match])
       flash[:notice] = "Changes Saved."
       redirect_to :action => 'index'
     else
-      render :action => 'edit'  
+      render :action => 'edit'
     end
   end
-  
+
   def destroy
     if Match.find(params[:id]).destroy
       flash[:notice] = "Match went kaboom."
@@ -45,5 +45,4 @@ class MatchesController < ApplicationController
     end
     redirect_to :action => 'index'
   end
-  
 end
