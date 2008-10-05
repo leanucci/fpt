@@ -2,12 +2,10 @@ class Tournament < ActiveRecord::Base
 
   has_many  :participations
   has_many  :teams, :through => :participations
-  has_many  :standings, :dependent => :destroy
+  has_many  :standings, :dependent => :destroy, :order => "scheduled_date"
 
   ##
   # un tipo de torneo por temporada (apertura y clausura)
-
-  attr_accessor :team_ids
 
   validates_uniqueness_of     :t_type, :scope => :season,
     :message => "can have only one type per season"
@@ -21,8 +19,20 @@ class Tournament < ActiveRecord::Base
 
 
   after_create  :add_standings
-  after_save    :fulfill_teams if :has_teams?
+#  after_save    :fulfill_teams if :has_teams?
 
+  has_friendly_id :name_for_listing, :use_slug => true, :strip_diacritics => true
+
+  NAMES = [{:id => 0, :name => "Apertura"},
+           {:id => 1, :name => "Clausura"}]
+
+  def name
+    NAMES[t_type]
+  end
+
+  def name_for_listing
+     name[:name] + " " + season.year.to_s
+  end
 
   def finish_date_ok?
     if self.finish_date.nil? || self.start_date.nil?
@@ -60,32 +70,20 @@ class Tournament < ActiveRecord::Base
     end
   end
 
-  def fulfill_teams
-    Participation.destroy_all(:tournament_id == self.id)
-    self.team_ids.each do |t|
-      Participation.create(:team_id => t, :tournament_id => self.id)
-    end
-  end
+#  def fulfill_teams
+#    Participation.destroy_all(:tournament_id == self.id)
+#    self.teams.each do |t|
+#      Participation.create(:team_id => t, :tournament_id => self.id)
+#    end
+#  end
 
   def too_many_teams?
-    if self.team_ids.size > 20
+    if self.teams.size > 20
       self.errors.add :teams, "cant pass 20."
-    end
-  end
-
-  def tournament_type
-    if t_type == 1
-      return "Apertura"
-    else
-      return "Clausura"
     end
   end
 
   def has_teams?
     !!self.team_ids
-  end
-
-  def name_for_listing
-    "Tournament " + tournament_type + ' ' + season.year.to_s
   end
 end

@@ -1,79 +1,79 @@
 mduno:
   played_date: 2007-08-03
-  standing: fecha1a07
-  home_team: colon
-  away_team: velez
+  standing_id: 1
+  home_team_id: 5
+  away_team_id: 16
   home_team_score: 10
   away_team_score: 1
 
 mddos:
   played_date: 2007-08-03
-  standing: fecha1a07
-  home_team: banfield
-  away_team: estudiantes
+  standing_id: 1
+  home_team_id: 3
+  away_team_id: 6
   home_team_score: 0
   away_team_score: 3
 
 mdtres:
   played_date: 2007-08-04
-  standing: fecha1a07
-  home_team: argentinos
-  away_team: sanmartin
+  standing_id: 1
+  home_team_id: 1
+  away_team_id: 19
   home_team_score: 0
   away_team_score: 1
 
 mdcuatro:
   played_date: 2007-08-04
-  standing: fecha1a07
-  home_team: loboplatense
-  away_team: tigre
+  standing_id: 1
+  home_team_id: 8
+  away_team_id: 20
   home_team_score: 0
   away_team_score: 1
 
 mdcinco:
   played_date: 2007-08-04
-  standing: fecha1a07
-  home_team: independiente
-  away_team: lanus
+  standing_id: 1
+  home_team_id: 9
+  away_team_id: 10
   home_team_score: 5
   away_team_score: 3
 
 mdseis:
   played_date: 2007-08-05
-  standing: fecha1a07
-  home_team: olimpo
-  away_team: racing
+  standing_id: 1
+  home_team_id: 18
+  away_team_id: 12
   home_team_score: 0
   away_team_score: 2
 
 mdsiete:
   played_date: 2007-08-05
-  standing: fecha1a07
-  home_team: newells
-  away_team: sanlorenzo
+  standing_id: 1
+  home_team_id: 11
+  away_team_id: 15
   home_team_score: 1
   away_team_score: 0
 
 mdocho:
   played_date: 2007-08-05
-  standing: fecha1a07
-  home_team: boca
-  away_team: central
+  standing_id: 1
+  home_team_id: 4
+  away_team_id: 14
   home_team_score: 0
   away_team_score: 0
 
 mdnueve:
   played_date: 2007-08-05
-  standing: fecha1a07
-  home_team: huracan
-  away_team: arsenal
+  standing_id: 1
+  home_team_id: 17
+  away_team_id: 2
   home_team_score: 1
   away_team_score: 1
 
 mddiez:
   played_date: 2007-08-05
-  standing: fecha1a07
-  home_team: gimnasiaj
-  away_team: river
+  standing_id: 1
+  home_team_id: 7
+  away_team_id: 13
   home_team_score: 2
   away_team_score: 2

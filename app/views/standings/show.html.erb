@@ -1,11 +1,9 @@
 <%= link_to 'tournaments', tournaments_path %> &gt;
-<%= link_to "#{get_tournament_type(@tournament)}" + " " +
-"#{@tournament.season.year}", tournament_path(@tournament) %> &gt;
+<%= link_to @tournament.name_for_listing, tournament_path(@tournament) %> &gt;
 <%= @standing.name.capitalize %>:
 
 <h3>
-  Torneo <%= get_tournament_type(@tournament) %>
-  <%= @tournament.season.year %>
+  Torneo <%= @tournament.name_for_listing %>
 </h3>
 
 <h4>

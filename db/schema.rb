@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 13) do
+ActiveRecord::Schema.define(:version => 14) do
 
   create_table "matches", :force => true do |t|
     t.integer "standing_id"
@@ -35,14 +35,25 @@ ActiveRecord::Schema.define(:version => 13) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.string   "sluggable_type"
+    t.integer  "sluggable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type"], :name => "index_slugs_on_name_and_sluggable_type", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
   create_table "standings", :force => true do |t|
-    t.string  "name"
-    t.date    "scheduled_date"
-    t.integer "tournament_id"
+    t.string   "name"
+    t.datetime "scheduled_date"
+    t.integer  "tournament_id"
   end
 
   create_table "teams", :force => true do |t|
-    t.string "complete_name"
+    t.string "full_name"
     t.string "short_name"
     t.string "acronym_name"
     t.string "nickname_name"

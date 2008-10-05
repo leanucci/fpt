@@ -5,8 +5,8 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.find(params[:id], :include => [:standings, :teams],
-                                  :order => "standings.name")
+    @tournament = Tournament.find(params[:id], :include => :standings,
+                                  :order => "standings.scheduled_date")
     @teams = @tournament.teams
   end
 
@@ -28,7 +28,6 @@ class TournamentsController < ApplicationController
 
   def edit
     @tournament = Tournament.find(params[:id])
-    @teams      = Team.find(:all)
   end
 
   def update

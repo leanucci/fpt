@@ -1,42 +1,41 @@
 <%= link_to 'Tournaments', tournaments_path %> &gt;
- <%= get_tournament_type(@tournament) %>
- <%= @tournament.season.year %>
-
-<h3>Torneo <%= get_tournament_type(@tournament) %>
- <%= @tournament.season.year %>
- <%= link_to "(edit)", edit_tournament_path(@tournament) %></h3>
-
-
+<%= @tournament.name_for_listing %>
+<h3>
+  Torneo <%= @tournament.name_for_listing %>
+  <%= link_to "(edit)", edit_tournament_path(@tournament) %>
+</h3>
+<br />
 <p>
   <b>Starts:</b>
   <%=h @tournament.start_date.to_formatted_s(:rfc822) %>
   <b>Ends:</b>
   <%=h @tournament.finish_date.to_formatted_s(:rfc822) %>
 </p>
-<div style="width:820px;float:left;">
-<% i = 0 -%>
-<div style="width:205px;float:left;">
-  <ul style="list-style-type:none;padding-left:5px;">
-  <% for standing in @tournament.standings %>
-    <li>
-      <%= link_to "#{standing.name.capitalize}",
-                    tournament_standing_path(@tournament, standing) %>
-      (<%=h standing.scheduled_date.to_formatted_s(:rfc822) %>)
-    </li>
-    <% i = i + 1 -%>
-    <% if i.modulo(5) == 0 -%>
-  </ul>
-</div>
-<div style="min-width:205px;float:left;">
-  <ul style="list-style-type:none;padding-left:5px;">
+<br />
+<div style="width:820px;float:left;clear:both;">
+  <% i = 0 -%>
+  <div style="width:205px;float:left;">
+    <ul style="list-style-type:none;padding-left:5px;">
+    <% for standing in @tournament.standings %>
+      <li>
+        <%= link_to "#{standing.name.capitalize}",
+                      tournament_standing_path(@tournament, standing) %>
+        (<%=h standing.scheduled_date.to_date.to_formatted_s(:short) %>)
+      </li>
+      <% i = i + 1 -%>
+      <% if i.modulo(5) == 0 -%>
+    </ul>
+  </div>
+  <div style="min-width:205px;float:left;">
+    <ul style="list-style-type:none;padding-left:5px;">
+      <% end -%>
     <% end -%>
-  <% end -%>
-  </ul>
-</div>
+    </ul>
+  </div>
 </div>
 <div style="clear:both;">
-<b><%= link_to 'Teams ', edit_teams_tournament_path(@tournament) %></b><br />
-
+<br />
+<b><%= link_to 'Teams ', edit_teams_tournament_path(@tournament) %></b><br /><br />
 <% @tournament.teams.each do |team| %>
   <%= link_to "#{team.short_name.capitalize}", team_path(team) %>&nbsp;
 <% end %>

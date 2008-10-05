@@ -35,8 +35,8 @@
     <div class="table_column100 left">
       <%= tournament.finish_date.to_formatted_s(:rfc822) %>
     </div>
-      <%= link_to "edit", edit_tournament_path(tournament) %> |
-      <%= link_to "delete", tournament_path(tournament),
+      <%= link_to "edit", edit_tournament_path(tournament.to_param) %> |
+      <%= link_to "delete", tournament_path(tournament.to_param),
                             :confirm => "ohrly?", :method => :delete %>
       <% unless tournament.id == @tournaments.last.id %>
       <hr />

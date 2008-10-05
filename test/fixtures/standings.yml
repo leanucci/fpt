@@ -1,94 +1,113 @@
 fecha1a07:
+  id: 1
   name: fecha 1
   scheduled_date: 2007-08-05
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha2a07:
+  id: 2
   name: fecha 2
   scheduled_date: 2007-08-12
-  tournament: apertura07
+  tournament_id: 1
 
 fecha3a07:
+  id: 3
   name: fecha 3
   scheduled_date: 2007-08-19
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha4a07:
+  id: 4
   name: fecha 4
   scheduled_date: 2007-08-26
-  tournament: apertura07
+  tournament_id: 1
 
 fecha5a07:
+  id: 5
   name: fecha 5
   scheduled_date: 2007-08-29
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha6a07:
+  id: 6
   name: fecha 6
   scheduled_date: 2007-09-02
-  tournament: apertura07
+  tournament_id: 1
 
 fecha7a07:
+  id: 7
   name: fecha 7
   scheduled_date: 2007-09-09
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha8a07:
+  id: 8
   name: fecha 8
   scheduled_date: 2007-09-12
-  tournament: apertura07
+  tournament_id: 1
 
 fecha9a07:
+  id: 9
   name: fecha 9
   scheduled_date: 2007-09-17
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha10a07:
+  id: 10
   name: fecha 10
   scheduled_date: 2007-09-23
-  tournament: apertura07
+  tournament_id: 1
 
 fecha11a07:
+  id: 11
   name: fecha 11
   scheduled_date: 2007-09-30
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha12a07:
+  id: 12
   name: fecha 12
   scheduled_date: 2007-10-03
-  tournament: apertura07
+  tournament_id: 1
 
 fecha13a07:
+  id: 13
   name: fecha 13
   scheduled_date: 2007-10-10
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha14a07:
+  id: 14
   name: fecha 14
   scheduled_date: 2007-10-21
-  tournament: apertura07
+  tournament_id: 1
 
 fecha15a07:
+  id: 15
   name: fecha 15
   scheduled_date: 2007-11-04
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha16a07:
+  id: 16
   name: fecha 16
   scheduled_date: 2007-11-11
-  tournament: apertura07
+  tournament_id: 1
 
 fecha17a07:
+  id: 17
   name: fecha 17
   scheduled_date: 2007-11-25
-  tournament: apertura07
-  
+  tournament_id: 1
+
 fecha18a07:
+  id: 18
   name: fecha 18
   scheduled_date: 2007-12-02
-  tournament: apertura07
+  tournament_id: 1
 
 fecha19a07:
+  id: 19
   name: fecha 19
   scheduled_date: 2007-12-09
-  tournament: apertura07
+  tournament_id: 1

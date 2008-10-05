@@ -1,124 +1,124 @@
 argentinos:
   short_name: argentinos jrs
   acronym_name: AAAJ
-  complete_name: asociasion atletica argentinos juniors
+  full_name: asociasion atletica argentinos juniors
   nickname_name: el bicho
-  
+
 arsenal:
   short_name: arsenal
   acronym_name: AFC
-  complete_name: arsenal futbol club
+  full_name: arsenal futbol club
 
 banfield:
   short_name: banfield
   acronym_name: CAB
-  complete_name: club atletico banfield
+  full_name: club atletico banfield
   nickname_name: el taladro
-  
+
 boca:
   short_name: boca jrs
   acronym_name: CABJ
-  complete_name: club atletico boca juniors
+  full_name: club atletico boca juniors
   nickname_name: xeneizes
-  
+
 colon:
   short_name: colon
   acronym_name: CAC
-  complete_name: club atletico colon
+  full_name: club atletico colon
   nickname_name: sabalero
 
-estudiantes:  
+estudiantes:
   short_name: estudiantes
   acronym_name: CELP
-  complete_name: club estudiantes de la plata
+  full_name: club estudiantes de la plata
   nickname_name: pincharrata
-  
-gimnasiaj:  
+
+gimnasiaj:
   short_name: gimnasia(j)
   acronym_name: CAGE
-  complete_name: club atletico gimnasia y esgrima
+  full_name: club atletico gimnasia y esgrima
   nickname_name: el lobo jujeño
-  
-loboplatense:  
+
+loboplatense:
   short_name: gimnasia(lp)
   acronym_name: GELP
-  complete_name: club de gimnasia y esgrima de la plata
+  full_name: club de gimnasia y esgrima de la plata
   nickname_name: el lobo
-  
+
 independiente:
   short_name: independiente
   acronym_name: CAI
-  complete_name: club atletico independiente
+  full_name: club atletico independiente
   nickname_name: el rojo
 
 lanus:
   short_name: lanus
   acronym_name: CAL
-  complete_name: club atletico lanus
+  full_name: club atletico lanus
   nickname_name: el granate
 
 newells:
   short_name: newells
   acronym_name: NOB
-  complete_name: club atletico newells old boys
+  full_name: club atletico newells old boys
   nickname_name: la lepra
 
 racing:
   short_name: racing
   acronym_name: RC
-  complete_name: racing club
-  nickname_name: la academia 
+  full_name: racing club
+  nickname_name: la academia
 
 river:
   short_name: river plate
   acronym_name: CARP
-  complete_name: club atletico river plate
-  nickname_name: el millonario 
+  full_name: club atletico river plate
+  nickname_name: el millonario
 
 central:
   short_name: rosario central
   acronym_name: CARC
-  complete_name: club atletico rosario central
-  nickname_name: el canalla 
+  full_name: club atletico rosario central
+  nickname_name: el canalla
 
 sanlorenzo:
   short_name: san lorenzo
   acronym_name: CASLA
-  complete_name: club atletico san lorenzo de almagro
-  nickname_name: el ciclon 
+  full_name: club atletico san lorenzo de almagro
+  nickname_name: el ciclon
 
 velez:
   short_name: velez sarsfield
   acronym_name: CAVS
-  complete_name: club atletico velez sarsfield
-  nickname_name: 
-  
+  full_name: club atletico velez sarsfield
+  nickname_name:
+
 huracan:
   short_name: huracan
   acronym_name: CAH
-  complete_name: club atletico huracan
-  nickname_name: el globo 
+  full_name: club atletico huracan
+  nickname_name: el globo
 
 olimpo:
   short_name: olimpo
   acronym_name: COBA
-  complete_name: club olimpo (bahia blanca)
-  nickname_name: 
+  full_name: club olimpo (bahia blanca)
+  nickname_name:
 
 sanmartin:
   short_name: san martin
   acronym_name: CASM
-  complete_name: club atletico san martin (san juan)
-  nickname_name: 
+  full_name: club atletico san martin (san juan)
+  nickname_name:
 
 tigre:
   short_name: tigre
   acronym_name: CAT
-  complete_name: club atletico tigre
-  nickname_name:  
-  
+  full_name: club atletico tigre
+  nickname_name:
+
 tomba:
   short_name: godoy cruz
   acronym_name: CDGCAT
-  complete_name: club deportivo godoy cruz antonio tomba
+  full_name: club deportivo godoy cruz antonio tomba
   nickname_name: tomba

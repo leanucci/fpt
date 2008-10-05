@@ -1,0 +1,9 @@
+apertura07:
+  name: apertura-2007
+  sluggable_type: Tournament
+  sluggable_id: 1
+
+clausura08:
+  name: clausura-2008
+  sluggable_type: Tournament
+  sluggable_id: 2

@@ -1,7 +1,6 @@
 <%= link_to 'tournaments', tournaments_path %> &gt;
-<%= link_to "#{get_tournament_type(@tournament)}" + " " + "#{@tournament.season.year}",
-  tournament_path(@tournament) %> &gt;
-<%= link_to "#{@standing.name.capitalize}", tournament_standing_path(@standing.tournament, @standing) %> &gt;
+<%= link_to @tournament.name_for_listing, tournament_path(@tournament) %> &gt;
+<%= link_to @standing.name.capitalize, tournament_standing_path(@standing.tournament, @standing) %> &gt;
 Edit:
 
 <%= error_messages_for 'tournament', 'standing', 'match' %>
@@ -13,8 +12,7 @@ Edit:
 <% end %>
 
 <h3>
-  Torneo <%= get_tournament_type(@tournament) %>
-  <%= @tournament.season.year %>
+  Torneo <%= @tournament.name_for_listing %>
 </h3>
 
 <h4>

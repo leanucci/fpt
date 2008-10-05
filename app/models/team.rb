@@ -12,18 +12,23 @@ class Team < ActiveRecord::Base
   has_many :home_teams,     :through => :visits
 
   has_many :participations
-  has_many :tournaments, :through => :participations
+  has_many :tournaments,    :through => :participations
 
 #  has_many :matches,        :finder_sql =>  'SELECT * FROM matches ' +
 #                                            'WHERE matches.home_team_id = #{id} ' +
 #                                            'OR matches.away_team_id = #{id} ' +
 #                                            'ORDER BY matches.played_date'
 
+  has_friendly_id :full_name,
+                  :use_slug => true,
+                  :strip_diacritics => true,
+                  :max_length => 100
 
   validates_uniqueness_of :short_name
-  validates_uniqueness_of :complete_name
-  validates_presence_of   :acronym_name, :short_name, :complete_name
+  validates_uniqueness_of :full_name
+  validates_presence_of   :acronym_name, :short_name, :full_name
   validates_length_of     :nickname_name, :in => 4..20, :allow_blank => true
+
 
   def self.safe_find_all
     @teams = Team.find(:all)

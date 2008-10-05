@@ -1,124 +1,145 @@
 argentinos:
+  id: 1
   short_name: argentinos jrs
   acronym_name: AAAJ
-  complete_name: asociasion atletica argentinos juniors
+  full_name: asociasion atletica argentinos juniors
   nickname_name: el bicho
 
 arsenal:
+  id: 2
   short_name: arsenal
   acronym_name: AFC
-  complete_name: arsenal futbol club
+  full_name: arsenal futbol club
 
 banfield:
+  id: 3
   short_name: banfield
   acronym_name: CAB
-  complete_name: club atletico banfield
+  full_name: club atletico banfield
   nickname_name: el taladro
 
 boca:
+  id: 4
   short_name: boca jrs
   acronym_name: CABJ
-  complete_name: club atletico boca juniors
+  full_name: club atletico boca juniors
   nickname_name: xeneizes
-  
+
 colon:
+  id: 5
   short_name: colon
   acronym_name: CAC
-  complete_name: club atletico colon
+  full_name: club atletico colon
   nickname_name: sabalero
 
-estudiantes:  
+estudiantes:
+  id: 6
   short_name: estudiantes
   acronym_name: CELP
-  complete_name: club estudiantes de la plata
+  full_name: club estudiantes de la plata
   nickname_name: pincharrata
-  
-gimnasiaj:  
+
+gimnasiaj:
+  id: 7
   short_name: gimnasia(j)
   acronym_name: CAGE
-  complete_name: club atletico gimnasia y esgrima
+  full_name: club atletico gimnasia y esgrima
   nickname_name: el lobo jujeño
-  
-loboplatense:  
+
+loboplatense:
+  id: 8
   short_name: gimnasia(lp)
   acronym_name: GELP
-  complete_name: club de gimnasia y esgrima de la plata
+  full_name: club de gimnasia y esgrima de la plata
   nickname_name: el lobo
-  
+
 independiente:
+  id: 9
   short_name: independiente
   acronym_name: CAI
-  complete_name: club atletico independiente
+  full_name: club atletico independiente
   nickname_name: el rojo
 
 lanus:
+  id: 10
   short_name: lanus
   acronym_name: CAL
-  complete_name: club atletico lanus
+  full_name: club atletico lanus
   nickname_name: el granate
 
 newells:
+  id: 11
   short_name: newells
   acronym_name: NOB
-  complete_name: club atletico newells old boys
+  full_name: club atletico newells old boys
   nickname_name: la lepra
 
 racing:
+  id: 12
   short_name: racing
   acronym_name: RC
-  complete_name: racing club
-  nickname_name: la academia 
+  full_name: racing club
+  nickname_name: la academia
 
 river:
+  id: 13
   short_name: river plate
   acronym_name: CARP
-  complete_name: club atletico river plate
-  nickname_name: el millonario 
+  full_name: club atletico river plate
+  nickname_name: el millonario
 
 central:
+  id: 14
   short_name: rosario central
   acronym_name: CARC
-  complete_name: club atletico rosario central
-  nickname_name: el canalla 
+  full_name: club atletico rosario central
+  nickname_name: el canalla
 
 sanlorenzo:
+  id: 15
   short_name: san lorenzo
   acronym_name: CASLA
-  complete_name: club atletico san lorenzo de almagro
-  nickname_name: el ciclon 
+  full_name: club atletico san lorenzo de almagro
+  nickname_name: el ciclon
 
 velez:
+  id: 16
   short_name: velez sarsfield
   acronym_name: CAVS
-  complete_name: club atletico velez sarsfield
-  nickname_name: 
-  
+  full_name: club atletico velez sarsfield
+  nickname_name:
+
 huracan:
+  id: 17
   short_name: huracan
   acronym_name: CAH
-  complete_name: club atletico huracan
-  nickname_name: el globo 
+  full_name: club atletico huracan
+  nickname_name: el globo
 
 olimpo:
+  id: 18
   short_name: olimpo
   acronym_name: COBA
-  complete_name: club olimpo (bahia blanca)
-  nickname_name: 
+  full_name: club olimpo (bahia blanca)
+  nickname_name:
 
 sanmartin:
+  id: 19
   short_name: san martin
   acronym_name: CASM
-  complete_name: club atletico san martin (san juan)
-  nickname_name: 
+  full_name: club atletico san martin (san juan)
+  nickname_name:
 
 tigre:
+  id: 20
   short_name: tigre
   acronym_name: CAT
-  complete_name: club atletico tigre
+  full_name: club atletico tigre
   nickname_name:
-  
+
 tomba:
+  id: 21
   short_name: godoy cruz
   acronym_name: CDGCAT
-  complete_name: club deportivo godoy cruz antonio tomba
+  full_name: club deportivo godoy cruz antonio tomba
   nickname_name: tomba

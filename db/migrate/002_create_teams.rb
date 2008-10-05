@@ -1,10 +1,7 @@
 class CreateTeams < ActiveRecord::Migration
   def self.up
     create_table :teams do |t|
-      t.string :complete_name
-      t.string :short_name
-      t.string :acronym_name
-      t.string :nickname_name
+      t.string :full_name, :short_name, :acronym_name, :nickname_name
     end
   end
 
