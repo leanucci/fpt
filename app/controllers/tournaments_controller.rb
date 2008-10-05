@@ -1,4 +1,10 @@
 class TournamentsController < ApplicationController
+  before_filter :get_tournament, :except => [:index,
+                                             :new,
+                                             :create,
+                                             :edit_teams,
+                                             :push_team,
+                                             :remove_team]
 
   def index
     @tournaments = Tournament.find(:all)
@@ -16,7 +22,6 @@ class TournamentsController < ApplicationController
 
   def create
     @tournament = Tournament.new(params[:tournament])
-    @tournament.team_ids = []
     if @tournament.save
       flash[:notice] = "Tournament successfully created."
       redirect_to tournaments_path
@@ -58,23 +63,36 @@ class TournamentsController < ApplicationController
 
   def push_team
     @tournament = Tournament.find(params[:id], :include => :teams)
-    @tournament.team_ids =  Array.[](@tournament.teams.map {|x| x.id}).flatten
-    @tournament.team_ids << params[:team]
-    if @tournament.save
-      @included = @tournament.reload.teams
-      @excluded = Team.find(:all) - @included
-    else
-      @included = @tournament.teams
-      @excluded = Team.find(:all) - @included
+    @team = Team.find(params[:team])
+
+    render :update do |page|
+      if @tournament.teams.size == 20
+        page.show "team_#{params[:team]}"
+        page.replace_html "notice", :text => "Maximun of 20 teams reached. Remove a team first."
+      else
+        @tournament.teams << @team
+        @included = @tournament.reload.teams
+        @excluded = Team.find(:all) - @included
+        page.remove "team_#{@team.to_param}"
+        page.replace_html "teamslist", :partial => 'teams_included'
+      end
     end
-    render :partial => 'teams_included'
   end
 
   def remove_team
-    @tournament = Tournament.find(params[:id])
-    @tournament.participations.find_by_team_id(params[:team]).destroy
+    @tournament = Tournament.find(params[:id], :include => :teams)
+    @team = Team.find(params[:team])
+    @tournament.teams.delete(@team) if @tournament.teams.include?(@team)
     @included = @tournament.teams
     @excluded = Team.find(:all, :order => "short_name") - @included
-    render :partial => 'teams_excluded'
+    render :update do |page|
+      page.replace_html "excluded", :partial => 'teams_excluded'
+      page.replace_html "notice", ""
+    end
+  end
+
+  private
+  def get_tournament
+    @tournament = Tournament.find(params[:id])
   end
 end
