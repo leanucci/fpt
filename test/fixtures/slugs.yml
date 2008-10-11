@@ -7,3 +7,8 @@ clausura08:
   name: clausura-2008
   sluggable_type: Tournament
   sluggable_id: 2
+
+river:
+  name: river
+  sluggable_type: Team
+  sluggable_id: 13

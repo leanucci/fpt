@@ -1,11 +1,10 @@
 class TeamsController < ApplicationController
-
+  before_filter :get_team, :except => [:index, :new, :create, :sort_teams]
   def index
     @teams = Team.all(:order => "short_name")
   end
 
   def show
-    @team = Team.find(params[:id])
   end
 
   def new
@@ -23,11 +22,9 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
   end
 
   def update
-    @team = Team.find(params[:id])
     if @team.update_attributes(params[:team])
       flash[:notice] = "Changes Saved."
       redirect_to :action => 'index'
@@ -37,7 +34,7 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    if Team.find(params[:id]).destroy
+    if @team.destroy
       flash[:notice] = "Team went kaboom."
     else
       flash[:notice] = "Something went wrong."
@@ -50,4 +47,8 @@ class TeamsController < ApplicationController
     render :partial => 'matches'
   end
 
+  private
+  def get_team
+    @team = Team.find(params[:id])
+  end
 end
