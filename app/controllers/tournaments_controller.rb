@@ -11,8 +11,7 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.find(params[:id], :include => :standings,
-                                  :order => "standings.scheduled_date")
+    @tournament = Tournament.find(params[:id], :include => :teams)
     @teams = @tournament.teams
   end
 

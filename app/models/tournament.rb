@@ -1,7 +1,7 @@
 class Tournament < ActiveRecord::Base
 
   has_many  :participations
-  has_many  :teams, :through => :participations, :order => "short_name"
+  has_many  :teams, :through => :participations
   has_many  :standings, :dependent => :destroy, :order => "scheduled_date"
 
   ##
@@ -21,7 +21,9 @@ class Tournament < ActiveRecord::Base
   after_create  :add_standings
 #  after_save    :fulfill_teams if :has_teams?
 
-  has_friendly_id :name_for_listing, :use_slug => true, :strip_diacritics => true
+  has_friendly_id :name_for_listing, :use_slug => true,
+                                     :strip_diacritics => true,
+                                     :max_length => 100
 
   NAMES = [{:id => 0, :name => "Apertura"},
            {:id => 1, :name => "Clausura"}]

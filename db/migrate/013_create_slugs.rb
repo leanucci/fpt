@@ -1,8 +1,8 @@
 class CreateSlugs < ActiveRecord::Migration
   def self.up
     create_table :slugs do |t|
-      t.string :name
-      t.string :sluggable_type
+      t.string :name, :limit => 100
+      t.string :sluggable_type, :limit => 25
       t.integer :sluggable_id
       t.timestamps
     end

@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.find(:all)
+    @teams = Team.all(:order => "short_name")
   end
 
   def show
@@ -21,21 +21,21 @@ class TeamsController < ApplicationController
       redirect_to :action => 'new'
     end
   end
-  
+
   def edit
     @team = Team.find(params[:id])
   end
-  
+
   def update
     @team = Team.find(params[:id])
     if @team.update_attributes(params[:team])
       flash[:notice] = "Changes Saved."
       redirect_to :action => 'index'
     else
-      render :action => 'edit'  
+      render :action => 'edit'
     end
   end
-  
+
   def destroy
     if Team.find(params[:id]).destroy
       flash[:notice] = "Team went kaboom."
@@ -44,10 +44,10 @@ class TeamsController < ApplicationController
     end
     redirect_to :action => 'index'
   end
-  
+
   def sort_teams
     @teams = params[:list]
     render :partial => 'matches'
   end
-  
+
 end

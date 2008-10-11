@@ -1,10 +1,12 @@
 apertura07:
+  id: 1
   t_type: 0
   season: 2007-01-01
   start_date: 2007-08-05
   finish_date: 2007-12-09
 
 clausura08:
+  id: 2
   t_type: 1
   season: 2008-01-01
   start_date: 2008-02-10

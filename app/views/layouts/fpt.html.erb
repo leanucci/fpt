@@ -9,6 +9,13 @@
     <%= javascript_include_tag :all %>
   </head>
   <body>
+    <div class="border_top_container">
+      <div class="left border_top_left"></div>
+      <div class="middle_border_top left"></div>
+      <div class="right border_top_right"></div>
+    </div>
+    <div class="clear">
+    </div>
     <div class="content">
       <div class="title">
         <h1>
@@ -22,8 +29,12 @@
         <%= yield :layout %>
       </div>
       <div class="footer" class="footer">
-        Footer vieja!
       </div>
+    </div>
+    <div class="border_bottom_container">
+      <div class="left border_bottom_left">&nbsp;</div>
+      <div class="middle_border_bottom left"></div>
+      <div class="right border_bottom_right">&nbsp;</div>
     </div>
   </body>
 </html>

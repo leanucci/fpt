@@ -1,4 +1,5 @@
 mduno:
+  id: 1
   played_date: 2007-08-03
   standing: fecha1a07
   home_team: colon
@@ -7,6 +8,7 @@ mduno:
   away_team_score: 1
 
 mddos:
+  id: 2
   played_date: 2007-08-03
   standing: fecha1a07
   home_team: banfield
@@ -15,6 +17,7 @@ mddos:
   away_team_score: 3
 
 mdtres:
+  id: 3
   played_date: 2007-08-04
   standing: fecha1a07
   home_team: argentinos
@@ -23,6 +26,7 @@ mdtres:
   away_team_score: 1
 
 mdcuatro:
+  id: 4
   played_date: 2007-08-04
   standing: fecha1a07
   home_team: loboplatense
@@ -31,6 +35,7 @@ mdcuatro:
   away_team_score: 1
 
 mdcinco:
+  id: 5
   played_date: 2007-08-04
   standing: fecha1a07
   home_team: independiente
@@ -39,6 +44,7 @@ mdcinco:
   away_team_score: 3
 
 mdseis:
+  id: 6
   played_date: 2007-08-05
   standing: fecha1a07
   home_team: olimpo
@@ -47,6 +53,7 @@ mdseis:
   away_team_score: 2
 
 mdsiete:
+  id: 7
   played_date: 2007-08-05
   standing: fecha1a07
   home_team: newells
@@ -55,6 +62,7 @@ mdsiete:
   away_team_score: 0
 
 mdocho:
+  id: 8
   played_date: 2007-08-05
   standing: fecha1a07
   home_team: boca
@@ -63,6 +71,7 @@ mdocho:
   away_team_score: 0
 
 mdnueve:
+  id: 9
   played_date: 2007-08-05
   standing: fecha1a07
   home_team: huracan
@@ -71,6 +80,7 @@ mdnueve:
   away_team_score: 1
 
 mddiez:
+  id: 10
   played_date: 2007-08-05
   standing: fecha1a07
   home_team: gimnasiaj

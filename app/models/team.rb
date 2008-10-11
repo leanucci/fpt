@@ -19,7 +19,7 @@ class Team < ActiveRecord::Base
 #                                            'OR matches.away_team_id = #{id} ' +
 #                                            'ORDER BY matches.played_date'
 
-  has_friendly_id :full_name,
+  has_friendly_id :short_name,
                   :use_slug => true,
                   :strip_diacritics => true,
                   :max_length => 100

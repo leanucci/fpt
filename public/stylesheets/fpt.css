@@ -16,22 +16,24 @@ body {
 a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 
 .content {
-  margin: 30px auto;
-  border: 3px solid black;
-  width: 1000px;
+  margin: auto;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  width: 900px;
+  z-index: 0px;
 }
 .content h2 {
   margin: 10px 0 0 0;
 }
 .title {
   background-color: #307E36;
-  height: 100px;
+  height: 75px;
   width: 100%;
   float:left;
 }
 .title h1 {
   margin: 0;
-  padding: 32px 32px 0 0;
+  padding: 16px 32px 0 0;
   text-align: right;
   font-style: oblique;
 }
@@ -44,7 +46,7 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 .yield {
   padding: 10px;
   float: left;
-  width: 980px;
+  width: 880px;
   margin: 0;
   background-color: white;
   min-height: 400px;
@@ -63,6 +65,53 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 }
 .splitter {
   clear: both;
+}
+.border_top_container {
+  background: #307E36;
+  margin: auto;
+  margin-top: 20px;
+  width: 906px;
+  height: 20px;
+}
+.border_bottom_container {
+  margin: auto;
+  margin-bottom: 20px;
+  background: #307E36;
+  height: 20px;
+  width: 906px;
+}
+.border_top_left {
+  background: url("/images/ctl.gif") no-repeat;
+  z-index: 200;
+  width: 20px;
+  height: 20px;
+}
+.border_top_right {
+  background: url("/images/ctr.gif") no-repeat;
+  z-index: 200;
+  width: 20px;
+  height: 20px;
+}
+.border_bottom_left {
+  background: url("/images/cbl.gif") no-repeat;
+  z-index: 200;
+  width: 20px;
+  height: 20px;
+}
+.border_bottom_right {
+  background: url("/images/cbr.gif") no-repeat;
+  z-index: 200;
+  width: 20px;
+  height: 20px;
+}
+.middle_border_top {
+  border-top: 3px solid black;
+  width: 866px;
+}
+.middle_border_bottom {
+  border-bottom: 3px solid black;
+  width: 866px;
+  height: 17px;
 }
 
 /*****************************************************************************/
@@ -174,5 +223,6 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 /******************************** TABLEs *************************************/
 /*****************************************************************************/
 .left { float: left; }
+.right { float: right; }
 .table_column100 { width: 100px; }
 .table_column300 { width: 300px; }

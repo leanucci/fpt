@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 20081006225941) do
 
   create_table "matches", :force => true do |t|
     t.integer "standing_id"
@@ -20,10 +20,16 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer "away_team_score"
   end
 
+  add_index "matches", ["standing_id"], :name => "index_matches_on_standing_id"
+  add_index "matches", ["home_team_id"], :name => "index_matches_on_home_team_id"
+  add_index "matches", ["away_team_id"], :name => "index_matches_on_away_team_id"
+
   create_table "participations", :force => true do |t|
     t.integer "team_id",       :null => false
     t.integer "tournament_id", :null => false
   end
+
+  add_index "participations", ["tournament_id", "team_id", "id"], :name => "index_participations_on_tournament_id_and_team_id_and_id", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
@@ -36,8 +42,8 @@ ActiveRecord::Schema.define(:version => 14) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "slugs", :force => true do |t|
-    t.string   "name"
-    t.string   "sluggable_type"
+    t.string   "name",           :limit => 100
+    t.string   "sluggable_type", :limit => 25
     t.integer  "sluggable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,12 +58,16 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer  "tournament_id"
   end
 
+  add_index "standings", ["tournament_id"], :name => "index_standings_on_tournament_id"
+
   create_table "teams", :force => true do |t|
     t.string "full_name"
     t.string "short_name"
     t.string "acronym_name"
     t.string "nickname_name"
   end
+
+  add_index "teams", ["short_name"], :name => "index_teams_on_short_name", :unique => true
 
   create_table "teams_tournaments", :id => false, :force => true do |t|
     t.integer "team_id"

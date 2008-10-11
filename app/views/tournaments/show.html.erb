@@ -36,7 +36,7 @@
 <div style="clear:both;">
 <br />
 <b><%= link_to 'Teams ', edit_teams_tournament_path(@tournament) %></b><br /><br />
-<% @tournament.teams.each do |team| %>
-  <%= link_to "#{team.short_name.capitalize}", team_path(team) %>&nbsp;
+<% @teams.each do |team| %>
+  <%= link_to team.short_name.capitalize, team_path(team) %>,&nbsp;
 <% end %>
 </div>
