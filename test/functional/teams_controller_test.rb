@@ -64,14 +64,35 @@ class TeamsControllerTest < ActionController::TestCase
   end
 
   context "On PUT to :update" do
-    setup {@team = teams(:river)}
+    setup {@river = teams(:river)}
     context "with valid data" do
-      setup {put :update, :id => @team.to_param, :team => {:short_name => "River"}}
+      setup {put :update, :id => @river.to_param, :team => {:short_name => "River"}}
       should_set_the_flash_to /Saved/
       should_redirect_to "teams_url"
+      should_assign_to :team
       should "change the record" do
-        assert_equal Team.find(@team.to_param).short_name, "River"
+        assert assigns(:team).valid?
+        assert_equal Team.find(@river.to_param).short_name, "River"
       end
     end
+
+    context "with invalid data" do
+      setup {put :update, :id => @river.to_param, :team => {:short_name => nil}}
+      should_not_set_the_flash
+      should_respond_with :success
+      should_render_template :edit
+      should_assign_to :team
+      should "not change the record" do
+        deny assigns(:team).valid?
+        assert_equal Team.find(@river.to_param).short_name, "river plate"
+      end
+    end
+  end
+
+  context "On DELETE to :destroy" do
+    setup {delete :destroy, :id => teams(:river).to_param}
+    should_change "Team.count", :by => -1
+    should_set_the_flash_to /kaboom/
+    should_redirect_to "teams_url"
   end
 end

@@ -172,14 +172,14 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
   margin: 0;
   padding: 5px;
   border: 2px solid #8B2B23;
-  width: 200px;
+  width: 175px;
   float: left;
   min-height: 266px;
 }
 
 #included {
   margin-left: 10px;
-  width: 756px;
+  width: 676px;
   float: left;
 }
 #teamslist {
@@ -190,7 +190,7 @@ a:link, a:visited {color: #7D7D7D; text-decoration: none;}
 }
 #eliminator {
   text-align: center;
-  width: 752px;
+  width: 672px;
   color: grey;
   float: left;
   height: 100px;

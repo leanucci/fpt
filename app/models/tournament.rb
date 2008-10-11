@@ -1,6 +1,6 @@
 class Tournament < ActiveRecord::Base
 
-  has_many  :participations
+  has_many  :participations, :dependent => :destroy
   has_many  :teams, :through => :participations
   has_many  :standings, :dependent => :destroy, :order => "scheduled_date"
 

@@ -1,4 +1,4 @@
-#one:
-#  id:
-#  team_id:
-#  tournament_id:
+one:
+  id: 1
+  team_id: 1
+  tournament_id: 1

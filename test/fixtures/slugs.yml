@@ -12,3 +12,8 @@ river:
   name: river
   sluggable_type: Team
   sluggable_id: 13
+
+argentinos:
+  name: argentinos-jrs
+  sluggable_type: Team
+  sluggable_id: 1
